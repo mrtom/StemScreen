@@ -1,6 +1,5 @@
 using Toybox.BluetoothLowEnergy as Ble;
 using Toybox.System;
-using Toybox.Time;
 using Toybox.Lang;
 
 // Garmin is the central; Waveshare advertises one writable custom service.
@@ -9,7 +8,7 @@ class StemLink extends Ble.BleDelegate {
     const rxUuid = Ble.stringToUuid("93e1b4a1-5c21-4e62-a738-9d608c17f201");
     var counter = 0;
     var acked = 0;
-    var visible = false;
+    var ride;
     var status = "Starting";
     var active = false;
     var registered = false;
@@ -30,7 +29,7 @@ class StemLink extends Ble.BleDelegate {
     var retryTicks = 0;
     var failures = 0;
 
-    function initialize() { BleDelegate.initialize(); }
+    function initialize() { BleDelegate.initialize(); ride = new RideData(); }
     function start() {
         active = true;
         status = "Set delegate";
@@ -39,7 +38,7 @@ class StemLink extends Ble.BleDelegate {
             status = "Registering";
             profileWaiting = true;
             profileTicks = 0;
-            System.println("Stem BLE diag2: requesting profile registration");
+            System.println("StemScreen ride v2: requesting profile registration");
             Ble.registerProfile({:uuid => serviceUuid,
                 :characteristics => [{:uuid => rxUuid, :descriptors => []}]});
             System.println("Profile request returned");
@@ -127,7 +126,8 @@ class StemLink extends Ble.BleDelegate {
             try { Ble.unpairDevice(oldDevice); } catch (e) { System.println("Unpair failed"); }
         }
     }
-    function tick() {
+    function tick(info) {
+        ride.update(info);
         // Counter means compute calls, NOT ride seconds. Keep it nonnegative.
         counter = counter == 2147483647 ? 0 : counter + 1;
         if (!active) { return; }
@@ -169,19 +169,12 @@ class StemLink extends Ble.BleDelegate {
                 if (pendingTicks >= 5) { resetConnection(); }
                 return;
             }
-            var data = [0x42,0x53,1,1,0,0,0,0,0,0,0,0,0,0,0,0]b;
-            put32(data, 4, counter);
-            put32(data, 8, Time.now().value());
-            data[12] = visible ? 1 : 0;
             pending = true; pendingTicks = 0; pendingCounter = counter;
-            rx.requestWrite(data, {:writeType => Ble.WRITE_TYPE_WITH_RESPONSE});
+            rx.requestWrite(ride.packet, {:writeType => Ble.WRITE_TYPE_WITH_RESPONSE});
         } catch (e) {
             System.println(e.getErrorMessage());
             resetConnection();
         }
-    }
-    function put32(data as Lang.ByteArray, offset as Lang.Number, value as Lang.Number) as Void {
-        for (var i = 0; i < 4; i++) { data[offset+i] = (value >> (i*8)) & 0xff; }
     }
     function onCharacteristicWrite(characteristic, result) {
         if (!active || rx == null || !characteristic.equals(rx) || !pending) { return; }

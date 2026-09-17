@@ -1,4 +1,4 @@
-// Prototype 03: receive a real Garmin counter. No local timer simulation.
+// StemScreen ride UI: Garmin local clock and active activity timer.
 // Waveshare ESP32-S3-LCD-1.28 NON-TOUCH; Arduino ESP32 core 3.3.0.
 #include <Arduino.h>
 #include <SPI.h>
@@ -8,7 +8,7 @@
 #include <BLEServer.h>
 #include <BLEUtils.h>
 #include <esp_arduino_version.h>
-#include "ReceiverState.h"
+#include "RideUi.h"
 
 #if !defined(CONFIG_IDF_TARGET_ESP32S3)
 #error "Select ESP32S3 Dev Module"
@@ -16,7 +16,8 @@
 SPIClass displaySPI(HSPI);
 Adafruit_GC9A01A display(&displaySPI, 8, 9, 12);
 // A small strip buffer keeps redraws smooth without a large BLE RAM cost.
-GFXcanvas16 strip(204, 40);
+GFXcanvas16 strip(204, 48);
+PageRotation rotation;
 portMUX_TYPE stateLock = portMUX_INITIALIZER_UNLOCKED;
 ReceiverState sharedState;
 
@@ -62,7 +63,7 @@ void receiverGattEvent(esp_gatts_cb_event_t event, esp_gatt_if_t, esp_ble_gatts_
 }
 #endif
 
-void textLine(const char* text, int y, int size, uint16_t color) {
+void textLine(const char* text, int y, int size, uint16_t color, int height) {
   strip.fillScreen(GC9A01A_BLACK);
   strip.setTextWrap(false);
   strip.setTextSize(size);
@@ -71,7 +72,19 @@ void textLine(const char* text, int y, int size, uint16_t color) {
   strip.getTextBounds(text, 0, 0, &x, &top, &w, &h);
   strip.setCursor((204-int(w))/2-x, 0);
   strip.print(text);
-  display.drawRGBBitmap(18, y, strip.getBuffer(), 204, 40);
+  display.drawRGBBitmap(18, y, strip.getBuffer(), 204, height);
+}
+void drawScreen(const RideScreen& screen) {
+  textLine(screen.title, 44, 2, GC9A01A_WHITE, 24);
+  textLine(screen.value, 92, screen.valueSize, screen.valueColor, 48);
+  textLine(screen.detail, 151, strlen(screen.detail) <= 16 ? 2 : 1, screen.valueColor, 24);
+  textLine(screen.connection, 180, 1, screen.ring, 16);
+  textLine(screen.footer, 199, 1, GC9A01A_WHITE, 8);
+  display.fillCircle(111, 215, 3, screen.ridePage ? GC9A01A_DARKGREY : screen.ring);
+  display.fillCircle(129, 215, 3, screen.ridePage ? screen.ring : GC9A01A_DARKGREY);
+  // Redraw after the rectangular strips so the ring remains continuous.
+  display.drawCircle(120, 120, 114, screen.ring);
+  display.drawCircle(120, 120, 113, screen.ring);
 }
 void setup() {
   Serial.begin(115200);
@@ -86,11 +99,10 @@ void setup() {
     display.setCursor(35, 110); display.print("RAM error");
     while (true) delay(1000);
   }
-  display.drawCircle(120, 120, 114, GC9A01A_CYAN);
-  textLine("STEM RX d2", 35, 2, GC9A01A_CYAN);
-  textLine("Starting...", 82, 2, GC9A01A_WHITE);
+  rotation.startedAt = millis();
+  drawScreen(makeScreen(sharedState, millis(), false));
   BLEDevice::init("BikeStem");
-  Serial.printf("StemScreen RX diag2: core=%s address=%s\n",
+  Serial.printf("StemScreen ride v2: core=%s address=%s\n",
     ESP_ARDUINO_VERSION_STR, BLEDevice::getAddress().toString().c_str());
   auto* server = BLEDevice::createServer();
   server->setCallbacks(&serverEvents);
@@ -141,26 +153,17 @@ void loop() {
     Serial.println("BLE advertising restart requested");
   }
   if (state.packets != loggedPackets) {
-    Serial.printf("RX counter=%lu page=%s epoch=%lu packets=%lu rejected=%lu\n",
-      (unsigned long)state.packet.counter, state.packet.visible ? "visible" : "hidden",
-      (unsigned long)state.packet.epoch, (unsigned long)state.packets, (unsigned long)state.rejected);
+    Serial.printf("RX ride=%lus state=%u flags=%u local=%04u-%02u-%02u %02u:%02u:%02u packets=%lu rejected=%lu\n",
+      (unsigned long)state.packet.durationSeconds, unsigned(state.packet.status), unsigned(state.packet.flags),
+      unsigned(state.packet.year), unsigned(state.packet.month), unsigned(state.packet.day),
+      unsigned(state.packet.hour), unsigned(state.packet.minute), unsigned(state.packet.second),
+      (unsigned long)state.packets, (unsigned long)state.rejected);
     loggedPackets = state.packets;
   }
   if (uint32_t(now-lastDraw) >= 250) {
     lastDraw = now;
-    const bool fresh = packetFresh(state.connected, state.seenThisConnection, now, state.receivedAt);
-    const char* status = !state.connected ? "WAITING" : !state.seenThisConnection ? "WAIT DATA" : fresh ? "LIVE" : "STALE";
-    textLine(status, 72, 2, fresh ? GC9A01A_GREEN : GC9A01A_ORANGE);
-    char value[16];
-    if (state.packets) snprintf(value, sizeof(value), "%lu", (unsigned long)state.packet.counter);
-    else snprintf(value, sizeof(value), "--");
-    textLine(value, 108, strlen(value) <= 8 ? 4 : 3, GC9A01A_WHITE);
-    textLine(!fresh ? "Last value / waiting" : state.packet.visible ? "View flag: set" : "View flag: clear", 155, 1, GC9A01A_WHITE);
-    char age[32];
-    if (state.packets) snprintf(age, sizeof(age), "Received %lus ago", (unsigned long)(uint32_t(now-state.receivedAt)/1000));
-    else snprintf(age, sizeof(age), "Open Stem BLE on Garmin");
-    textLine(age, 188, 1, GC9A01A_CYAN);
-    display.drawCircle(120, 120, 114, GC9A01A_CYAN);
+    rotation.update(now);
+    drawScreen(makeScreen(state, now, rotation.ridePage));
   }
   delay(5);
 }

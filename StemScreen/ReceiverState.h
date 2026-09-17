@@ -3,7 +3,7 @@
 
 // Caller owns synchronization. Only a valid packet can refresh receivedAt.
 struct ReceiverState {
-  CounterPacket packet = {};
+  RidePacket packet = {};
   uint32_t receivedAt = 0, packets = 0, rejected = 0;
   uint32_t connects = 0, disconnects = 0, writes = 0;
   uint32_t rawConnects = 0, rawDisconnects = 0;
@@ -27,8 +27,8 @@ struct ReceiverState {
     ++writes;
     lastWriteLength = length;
     if (!connected) { ++whileDisconnected; }
-    CounterPacket decoded;
-    if (!decodeCounter(bytes, length, decoded)) {
+    RidePacket decoded;
+    if (!decodeRide(bytes, length, decoded)) {
       ++malformed; ++rejected;
       return;
     }
