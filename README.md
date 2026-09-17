@@ -1,130 +1,132 @@
-# Bike Stem Computer - prototype 02
+# Bike Stem Computer — first Bluetooth test
 
-For the **Waveshare ESP32-S3-LCD-1.28 non-touch** board, using the same display pins and libraries as the working Hello/Ride Time sample.
+This sends a counter from your **Garmin Edge 530** to your **Waveshare ESP32-S3-LCD-1.28 non-touch** board, roughly once a second. The board only displays values it actually receives.
 
-## What it does
+The aim is to prove that the connection works and keeps updating when you switch the Garmin to its map page. The clock, ride timer and rotating pages will come back in the next version. This counter is **not ride time**: it increments whenever Garmin calls the field's compute function, including while the activity timer is paused.
 
-- Starts on a **24-hour clock** showing large hours/minutes and the date.
-- Rotates between Clock and **Ride Time** every **10 seconds**.
-- Ride Time uses **HH:MM:SS** and starts paused at zero.
-- **Tap BOOT:** start, pause, or resume the ride timer. The action happens on release.
-- **Hold BOOT for 2 seconds:** reset the timer to zero and leave it paused. The reset happens while held; releasing it does not start it again.
-- Either button action immediately shows Ride Time and starts a fresh 30-second page interval.
-- The timer continues while the clock page is visible. Clock adjustments cannot change the elapsed ride time.
+You will upload two programs: an Arduino sketch to the Waveshare, then a Connect IQ data field to the Garmin. There is no phone app or internet connection in the data path.
 
-A small pair of dots at the bottom shows which page is visible. Green means the timer is running; amber means paused. The display only redraws when its content changes, using a RAM buffer to avoid clearing flicker.
+## 1. Upload the Waveshare program
 
-BOOT is the button to use during normal operation. RESET/RUN restarts the whole program. Holding BOOT while resetting or powering up still enters the ESP32's download mode; release BOOT and press RESET on its own to run normally.
+1. Unzip this download. Keep the folder contents together.
+2. Open **StemScreen/StemScreen.ino** in Arduino IDE. You should also see **BleProtocol.h** and **ReceiverState.h** tabs automatically.
+3. Plug in the Waveshare. Use **ESP32S3 Dev Module** and the USB port that worked previously (your last port was `/dev/cu.usbmodem5ABA0067551`; the suffix can change).
+4. Keep your working board settings. For reference: flash **16MB**, partition **16M Flash (3MB APP/9.9MB FATFS)**, PSRAM **QSPI PSRAM**, USB CDC On Boot **Disabled**, upload speed **115200**.
+5. This sketch uses the same **Adafruit GC9A01A** and **Adafruit GFX** libraries as before. BLE comes with Espressif's board package; you do not need to install a separate Bluetooth library. It targets **esp32 by Espressif Systems 3.3.0**, selectable in Boards Manager.
+6. Click **Upload**. After it completes, press the board's RESET/RUN button once if necessary.
 
-## Upload the update
+**Expected result:** the round screen says **STEM RX d2**, **WAITING**, and `--`. That is correct until the Garmin program connects. You can leave the board plugged into your Mac for power.
 
-1. Close the old Arduino sketch window. Keep your edited original folder as a backup if you want it.
-2. Unzip the new download. Move the complete **StemScreen** folder to your working location. It must contain both **WaveShare.ino** and **RideLogic.h**. Replace the old folder or use a separate parent directory; do not copy just the `.ino` file.
-3. Open **StemScreen.ino** in Arduino IDE. The helper header should appear as another tab.
-4. Keep the board settings that worked for Hello. Select your board port; at the time of setup it was **/dev/cu.usbmodem5ABA0067551** (the name can change).
-5. Click Verify, then Upload. If needed, press RESET/RUN once after uploading.
-6. You should see CLOCK. Tap BOOT to see Ride Time start counting. Tap again to pause; wait, tap again, and confirm it resumes. Hold for two seconds to clear it. Leave it alone for 30 seconds to see it switch pages.
+If uploading stalls, use the same recovery sequence as before: hold BOOT, press and release RESET/RUN, release BOOT, then upload. Press RESET/RUN after upload. If the display is black, check the selected sketch and the Serial Monitor at **115200 baud**.
 
-No extra libraries or hardware are required.
+The original standalone clock/timer is included under **StandaloneBackup/StemScreen**. To restore it, open its `StemScreen.ino` and upload it. Keep the sketch inside its matching folder.
 
-## Setting the clock
+## 2. Set up Garmin development on your Mac
 
-**On every startup this sample seeds its clock with the date/time embedded when the sketch was compiled on your Mac.** This is convenient for an initial demo but is only an approximation: compilation and uploading take time. An old/cached build or a restart later will reuse an old time. The screen labels this **Approx time - set via USB**.
+The Garmin source is included, but **there is no ready-to-copy Edge 530 PRG in this download**. Garmin requires sign-in to download its device definitions; I could run a general compiler check here but could not perform the final Edge 530 build. The following setup gets those definitions onto your Mac.
 
-The compiler timestamp is interpreted as **UK local time**, assuming the Mac used for compilation is also on UK time. The display uses GMT/BST automatically. If the Mac is on another timezone, use the USB command below to set it correctly.
+1. Install [Visual Studio Code](https://code.visualstudio.com/download) if you do not already have it.
+2. Download the Mac **Connect IQ SDK Manager** from [Garmin's SDK page](https://developer.garmin.com/connect-iq/sdk/). Open it and sign in with your Garmin account.
+3. In its **SDK** tab, install a stable SDK and make it active with **Use as SDK**. The source was checked with SDK **8.1.0**; you can select that version to match, or use a newer stable SDK.
+4. In **Devices**, find **Edge 530** and download its device definition. Wait for the download to finish. This step is essential even though you physically own an Edge 530.
+5. In VS Code's Extensions view, install **Monkey C**, published by **Garmin**. [Direct extension link](https://marketplace.visualstudio.com/items?itemName=garmin.monkey-c).
+6. Press **Cmd–Shift–P**, run **Monkey C: Verify Installation**, and resolve any requirements it reports. If Java is missing, install a JDK supported by the extension; Java 17 was used for the general compiler check here. Restart VS Code after installing Java.
+7. Press **Cmd–Shift–P** again and run **Monkey C: Generate a Developer Key**. Save the key somewhere you will retain, outside the downloaded project. This is the local signing key for your builds.
 
-To set it from your Mac after uploading (or after a restart):
+Garmin's [getting-started guide](https://developer.garmin.com/connect-iq/connect-iq-basics/getting-started/) covers the tools and key setup.
 
-1. Open **Tools > Serial Monitor** on the board's port.
-2. Choose **115200 baud** and the **Newline** line-ending option. Opening a serial connection can reset some boards; wait for it to be ready before sending.
-3. In your Mac's Terminal, run:
+## 3. Build and copy the Garmin data field
 
-   ```bash
-   printf 'TIME %s\n' "$(date +%s)"
-   ```
+1. In VS Code choose **File → Open Folder**, then select the **Garmin** folder in this download. You should see `manifest.xml`, `monkey.jungle`, `source` and `resources` in the sidebar. Open that folder itself, rather than an individual source file.
+2. Plug your **Edge 530** into the Mac using a USB data cable. It should appear in Finder as a mounted Garmin drive. The Waveshare can remain connected separately.
+3. Press **Cmd–Shift–P**, choose **Monkey C: Build for Device**, and select **Edge 530**. Choose an output folder on your Mac, such as a new `StemBuild` folder in Documents.
+4. When the build finishes successfully, find its **.prg** file in that output folder. The exact filename is chosen by the build wizard/project.
+5. In Finder, copy that `.prg` into **GARMIN/APPS** on the Edge. Copy the file itself, not the source folder or ZIP.
+6. Eject the Garmin in Finder, then unplug its USB cable. Allow it to return to normal operation; restart it if the new field is not listed.
 
-4. Copy the resulting line, for example `TIME 1788888888`, straight into the Serial Monitor input and press Send/Enter. **Use the number generated by your Mac, not the example number.**
-5. The board replies `OK: clock set from USB. Ride timer unchanged.` and prints its current local time. When the clock page is visible it says **Time set from Mac**.
+This is Garmin's supported [side-loading workflow](https://developer.garmin.com/connect-iq/connect-iq-basics/your-first-app/). There is no Connect IQ Store submission involved.
 
-Copy/paste introduces a few seconds of delay, so this is sufficient for the prototype's minute display, not a precision time synchronisation method. Run the Terminal command again if you leave a gap before sending it. The command uses Unix time, so it works regardless of your Mac's timezone; the screen converts to UK time.
+If Edge 530 is missing from the build menu, return to SDK Manager and confirm its definition is installed. If the build fails, copy the first error and the lines around it from VS Code's Output panel.
 
-You can also send `STATUS` to print the clock, elapsed time, and running/paused state. Use Newline or Both NL & CR. Invalid or oversized commands are rejected.
+## 4. Put the field on a Garmin data page
 
-**Resetting, uploading, or removing power clears the ride timer and this sample's clock sync.** After restarting, it returns to the embedded build time and the approximate-time label. This sample intentionally does not save an old clock value as if it were current. Later, the Garmin connection can supply live time and ride state.
+On the Edge 530:
 
-## Change the screen interval or orientation
+1. Go to **Menu → Settings → Activity Profiles**, then choose the cycling profile you will use.
+2. Open **Data Screens → Add New → Data Screen**.
+3. Select the **Connect IQ** category and **Stem BLE**. Finish with a layout containing just this one field, so its diagnostics are easy to read.
+4. Return to that profile's ride screens and open the new page.
 
-Near the top of `StemScreen.ino`:
+Garmin documents the screen setup in its [Edge 530 manual](https://www8.garmin.com/manuals/webhelp/edge530/EN-US/GUID-58CCEE56-34BF-44F4-ACCF-B81F6D716CA9.html).
 
-```cpp
-constexpr uint64_t SCREEN_INTERVAL_MS = 30000;
-constexpr uint8_t DISPLAY_ROTATION = 0;
-```
+**Do not use Add Sensor or your Mac's Bluetooth pairing screen.** The data field itself finds and connects to the board. For the first test, have one BikeStem board powered and keep it within a metre of the Garmin. Add this field only once to the active profile.
 
-Use `15000` for 15-second page rotation. Keep the interval greater than zero. Use rotation `0`, `1`, `2`, or `3`. Save and upload again.
+**Expected result:** Garmin progresses through **Searching → Connecting → Sending**. The Waveshare changes to **LIVE** and displays a growing number. Allow about 30 seconds for initial discovery.
 
-The UK timezone is configured with `TIME_ZONE`. The timer itself uses a 64-bit monotonic counter, independent of time-of-day and daylight-saving changes. Its on-screen value saturates at 99:59:59 instead of wrapping to zero; this is a prototype limitation for very long activities.
+The Garmin's large number counts compute calls, including calls before connection. It therefore need not begin at 1 on the board. **ACK** is the last counter acknowledged by the Bluetooth write operation; the Waveshare screen confirms the payload was decoded. A one-tick difference between screens is normal.
 
-## Environment reference
+## 5. Run the useful tests
 
-| Component | Version |
+Start a short test activity while stationary. If Auto Pause intervenes, note that separately or temporarily disable it for this test.
+
+| Test | What to look for |
 | --- | --- |
-| Desktop editor | Arduino IDE 2 |
-| esp32 by Espressif Systems | 3.3.0 |
-| Adafruit GC9A01A | 1.1.1 |
-| Adafruit GFX Library | 1.12.6 |
-| Adafruit BusIO | 1.17.4 |
+| Leave Stem BLE visible for 30 seconds | Board stays LIVE and its received counter keeps increasing. |
+| Switch the Garmin to its map page for 60 seconds | Board remains LIVE and its counter continues increasing. The view flag may stay set. |
+| Return to the data field | Updates continue. Do not use the view flag as proof of the selected page. |
+| Pause the Garmin activity timer | This diagnostic counter should continue; it is not yet the activity timer. |
+| Unplug the Waveshare, wait 10 seconds, reconnect power | Board starts at WAITING; the Garmin should reconnect and resume updates. Allow up to 45 seconds. |
+| Power off the Garmin while leaving the board powered | Board stops changing the number and shows STALE or WAITING. It must not invent further counts. |
+| Restart Garmin and re-enter the profile's ride screens | Connection should resume; the Garmin counter may restart because the field was reloaded. |
 
-Install board support with Arduino's Boards Manager. If needed, the additional board-manager URL is:
+Stopping or saving the activity, leaving its profile, or sleeping the Garmin is different from switching data pages. Continuous transmission occurs while the field remains loaded and Garmin continues calling it. Tom verified updates with the map visible for 120 seconds and WAITING/LIVE recovery after Garmin power-off/restart; see BUILD-NOTES.md for the exact observations and remaining checks.
 
-```text
-https://espressif.github.io/arduino-esp32/package_esp32_index.json
-```
+You can discard the test activity afterwards. Once the map-page test works, we can replace the counter with Garmin's actual ride timer, pause state and time of day.
 
-Install the libraries through Library Manager, accepting dependencies. No TFT_eSPI or LVGL configuration is needed.
+## Understanding the Waveshare screen
 
-| Tools setting | Value |
+| Display | Meaning |
 | --- | --- |
-| Board | ESP32S3 Dev Module |
-| Upload Speed | 115200 |
-| CPU Frequency | 240MHz (WiFi) |
-| Flash Mode | QIO 80MHz |
-| Flash Size | 16MB (128Mb) |
-| Partition Scheme | 16M Flash (3MB APP/9.9MB FATFS) |
-| PSRAM | QSPI PSRAM |
-| USB Mode | Hardware CDC and JTAG |
-| USB CDC On Boot | Disabled |
-| Upload Mode | UART0 / Hardware CDC |
-| USB Firmware MSC On Boot / USB DFU On Boot, if shown | Disabled |
-| Erase All Flash Before Sketch Upload | Disabled |
+| WAITING | No BLE connection. Any number shown is an old value. |
+| WAIT DATA | A central has connected, but no valid packet has arrived on this connection. |
+| LIVE | A valid packet arrived within the last five seconds. |
+| STALE | Connected, but no valid packet for at least five seconds. |
+| Received … ago | Age of the last accepted packet. It increases when transmissions stop. |
 
-Other options can stay at defaults. The board's USB-C uses a CH343 serial bridge; keep USB CDC On Boot disabled so `Serial` uses that connection.
+The `View flag: set/clear` label comes from the last packet's onShow/onHide flag
+(older installed builds say `Garmin page: visible/hidden`). It does not reliably
+track selected data pages on Edge 530: the flag stayed set during the map test.
+Clear is also its initial value before any onShow callback. When data is not live,
+the label is replaced with a waiting/last-value message.
 
-The unchanged internal display connections are SCK=10, MOSI=11, CS=9, DC=8, RESET=12, backlight=40. BOOT uses GPIO 0 with an active-low input. These are already wired on the PCB.
+## If something does not work
 
-## Troubleshooting
+- **Garmin stays at Starting:** install the current diagnostic build, identified
+  by `Stem BLE diag2` on a full-height field. After 30 seconds report its exact
+  status, P/S/A/Match/ACK values and your Edge firmware version. P is the profile
+  result (0 = success); S is the scan callback state; A counts advertisement
+  results, and Match counts results advertising our service (not unique devices).
+  Scanning now starts independently of the registration callback; pairing still
+  requires confirmed registration success. `No profile reply` means no registration
+  callback arrived within 10 compute ticks; `Profile UUID?` means a callback
+  arrived with an unexpected UUID; `Profile <number>` means registration failed.
+  These registration diagnostics concern the Garmin's local BLE setup, not the
+  receiver's packet decoder. Diag2 can scan while waiting for registration and
+  still accepts a late success reply. `P:0 S:off` with `Sending` and increasing
+  ACK is expected: registration succeeded and scanning stopped after selecting
+  the board. Confirm LIVE on the Waveshare to verify packet decoding as well.
+- **Board says WAITING; Garmin says Searching:** confirm the BLE sketch is uploaded, the field is open in your active profile, and both devices are nearby. A phone BLE scanner connected to the board can occupy the connection; disconnect it. Restart the board, then re-enter the Garmin profile.
+- **Board says WAITING; Garmin says Sending with increasing ACK:** check whether
+  ACK stops when this board is powered off. Upload the current receiver sketch
+  (`STEM RX d2` heading), then capture startup and 30 seconds of Serial Monitor
+  output at 115200. `BLE t=...` lines expose connect/disconnect and write counts,
+  accepted/rejected packets, malformed packets, writes while marked disconnected,
+  and last packet length. Raw GATTS connection/disconnection counts are included.
+  RX d2 accepts valid writes even when onConnect was missed; malformed writes
+  never refresh freshness. ACK alone does not confirm decoding on this board.
+- **Board says WAIT DATA or STALE:** open Arduino Serial Monitor at **115200**. Accepted packets print `RX counter=… page=…`. Send me those lines and the Garmin status/ACK value.
+- **Garmin shows IQ! or crashes:** connect it to the Mac and look in `GARMIN/APPS/LOGS` for `CIQ_LOG.YML` or `CIQ_LOG.TXT`. Share the relevant error entry, plus your Garmin firmware and SDK versions.
+- **Works on the data page, stops on the map:** leave the board powered and note whether it shows STALE or WAITING. Confirm the field still exists in the same active profile. This is precisely the hardware behaviour this prototype is designed to test.
+- **PRG copied but field absent:** check it is in `GARMIN/APPS`, was built for Edge 530, and that the device was ejected/unplugged. Restart Garmin and check the Connect IQ data-field category again.
 
-- **RideLogic.h missing:** keep the complete sketch folder together.
-- **Upload cannot connect:** close Serial Monitor, hold BOOT, tap RESET/RUN, release BOOT, then Upload. After success, release BOOT and tap RESET/RUN again.
-- **BOOT appears not to work:** short presses act on release; long presses need two seconds. Use BOOT, not RESET/RUN. A button held during boot enters download mode rather than operating this app.
-- **No port:** compare `ls /dev/cu.*` before and after plugging in. `ioreg -p IOUSB -w0` shows USB devices. On your macOS 26.5.2, `system_profiler SPUSBDataType` produced no output, so use `ioreg` instead. Your existing serial port already worked; no new driver is needed.
-- **Blank Serial Monitor:** check the port, 115200 baud, and USB CDC On Boot = Disabled; press RESET/RUN for startup messages.
-- **No reply to TIME:** choose Newline in Serial Monitor and send the generated command without quotes/backticks.
-- **Clock wrong after a restart:** set it again with TIME. Build time is only a fallback, not a battery-backed clock.
-
-## Code and validation
-
-`StemScreen.ino` handles the display, wall clock, serial commands and input polling. `RideLogic.h` contains the timer, debounced button logic, elapsed-time formatting and time-command validation, keeping these separate from the future BLE transport.
-
-`tests/test_logic.cpp` is a small native C++ test of pause/resume/reset, minute/hour formatting, long-press release behaviour, bounce rejection, a counter crossing the 32-bit millisecond boundary, invalid time commands and text fitting inside the circular screen. Arduino does not build this tests folder. Developers can run it with:
-
-```bash
-c++ -std=c++11 -Wall -Wextra -Werror tests/test_logic.cpp -o /tmp/bike-logic-test
-/tmp/bike-logic-test
-```
-
-The updated sketch compiled successfully with Arduino-ESP32 3.3.0 and the library versions/settings above: 411,991 bytes of flash and 22,640 bytes of global variables (plus a 115,200-byte display buffer allocated on the heap). All native logic checks passed.
-
-The previous Hello sample was confirmed working on Tom's board. This update still requires physical verification of the clock, button handling and page rotation; automated checks do not replace that hardware check.
-
-Sources: [Waveshare schematic](https://files.waveshare.com/wiki/ESP32-S3-LCD-1.28/Esp32-s3-lcd-.128-sch.pdf), [Adafruit display library](https://github.com/adafruit/Adafruit_GC9A01A), [Espressif time APIs](https://docs.espressif.com/projects/esp-idf/en/stable/esp32s3/api-reference/system/system_time.html).
+Please report the visible-page result, map-page result, and power-cycle reconnection result. Those three observations will tell us whether the link is ready for real ride data.
