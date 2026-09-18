@@ -1,0 +1,408 @@
+{
+  "parameters": [
+    {
+      "name": "pcb_diameter",
+      "expression": "36.5 mm",
+      "mm": 36.5,
+      "comment": "Waveshare official drawing: round PCB area"
+    },
+    {
+      "name": "pcb_length",
+      "expression": "39.5 mm",
+      "mm": 39.5,
+      "comment": "Official drawing overall length including USB tongue"
+    },
+    {
+      "name": "pcb_clearance",
+      "expression": "0.4 mm",
+      "mm": 0.4,
+      "comment": "Radial clearance; verify printed fit"
+    },
+    {
+      "name": "board_depth",
+      "expression": "7.9 mm",
+      "mm": 7.9,
+      "comment": "Official STEP: display front to lowest header"
+    },
+    {
+      "name": "pcb_back_offset",
+      "expression": "3.4 mm",
+      "mm": 3.4,
+      "comment": "Official STEP: screen face to PCB underside"
+    },
+    {
+      "name": "battery_width",
+      "expression": "30 mm",
+      "mm": 30.0,
+      "comment": "Pi Hut PKCell SKU106602"
+    },
+    {
+      "name": "battery_length",
+      "expression": "35 mm",
+      "mm": 35.0,
+      "comment": "Pi Hut PKCell SKU106602"
+    },
+    {
+      "name": "battery_thickness",
+      "expression": "5 mm",
+      "mm": 5.0,
+      "comment": "Nominal cell thickness; check actual pouch"
+    },
+    {
+      "name": "battery_xy_clearance",
+      "expression": "0.7 mm",
+      "mm": 0.7,
+      "comment": "Per side; keep cell uncompressed"
+    },
+    {
+      "name": "battery_pad",
+      "expression": "0.5 mm",
+      "mm": 0.5,
+      "comment": "Soft adhesive pad under cell"
+    },
+    {
+      "name": "battery_headroom",
+      "expression": "0.9 mm",
+      "mm": 0.9,
+      "comment": "Free space above cell below carrier"
+    },
+    {
+      "name": "cavity_diameter",
+      "expression": "48.5 mm",
+      "mm": 48.5,
+      "comment": "Fits battery diagonal, leads and service bosses"
+    },
+    {
+      "name": "wall_thickness",
+      "expression": "3 mm",
+      "mm": 3.0,
+      "comment": "Wide enough for seal gland"
+    },
+    {
+      "name": "case_diameter",
+      "expression": "cavity_diameter + 2 * wall_thickness",
+      "mm": 54.5,
+      "comment": "Derived outside diameter"
+    },
+    {
+      "name": "floor_thickness",
+      "expression": "4.2 mm",
+      "mm": 4.2,
+      "comment": "Flat printable floor with blind mount insert depth"
+    },
+    {
+      "name": "seam_z",
+      "expression": "floor_thickness + battery_pad + battery_thickness + battery_headroom",
+      "mm": 10.6,
+      "comment": "Case split and carrier seat"
+    },
+    {
+      "name": "carrier_thickness",
+      "expression": "1 mm",
+      "mm": 1.0,
+      "comment": "Removable insulating separator"
+    },
+    {
+      "name": "header_air_gap",
+      "expression": "0.5 mm",
+      "mm": 0.5,
+      "comment": "Separator to lowest header"
+    },
+    {
+      "name": "screen_z",
+      "expression": "seam_z + carrier_thickness + header_air_gap + board_depth",
+      "mm": 20.0,
+      "comment": "Display front datum"
+    },
+    {
+      "name": "pcb_back_z",
+      "expression": "screen_z - pcb_back_offset",
+      "mm": 16.6,
+      "comment": "PCB support datum"
+    },
+    {
+      "name": "lens_air_gap",
+      "expression": "0.5 mm",
+      "mm": 0.5,
+      "comment": "Clear cover separation from LCD"
+    },
+    {
+      "name": "lens_thickness",
+      "expression": "1 mm",
+      "mm": 1.0,
+      "comment": "Polycarbonate sheet"
+    },
+    {
+      "name": "lens_diameter",
+      "expression": "38 mm",
+      "mm": 38.0,
+      "comment": "Cut lens outside diameter"
+    },
+    {
+      "name": "lens_fit",
+      "expression": "0.25 mm",
+      "mm": 0.25,
+      "comment": "Radial installation allowance"
+    },
+    {
+      "name": "bezel_thickness",
+      "expression": "1 mm",
+      "mm": 1.0,
+      "comment": "Lip over cover lens"
+    },
+    {
+      "name": "window_diameter",
+      "expression": "33.2 mm",
+      "mm": 33.2,
+      "comment": "Clears 32.4 mm display active area"
+    },
+    {
+      "name": "case_height",
+      "expression": "screen_z + lens_air_gap + lens_thickness + bezel_thickness",
+      "mm": 22.5,
+      "comment": "Excludes mount"
+    },
+    {
+      "name": "seal_id",
+      "expression": "50 mm",
+      "mm": 50.0,
+      "comment": "Silicone O ring nominal ID"
+    },
+    {
+      "name": "seal_cs",
+      "expression": "1.5 mm",
+      "mm": 1.5,
+      "comment": "Silicone O ring cross section"
+    },
+    {
+      "name": "seal_groove_width",
+      "expression": "1.8 mm",
+      "mm": 1.8,
+      "comment": "Approx 82 percent gland fill"
+    },
+    {
+      "name": "seal_groove_depth",
+      "expression": "1.2 mm",
+      "mm": 1.2,
+      "comment": "20 percent nominal squeeze"
+    },
+    {
+      "name": "screw_radius",
+      "expression": "22 mm",
+      "mm": 22.0,
+      "comment": "Three screw axes: E W N"
+    },
+    {
+      "name": "boss_diameter",
+      "expression": "5.6 mm",
+      "mm": 5.6,
+      "comment": "Service screw boss OD"
+    },
+    {
+      "name": "m2_clearance",
+      "expression": "2.3 mm",
+      "mm": 2.3,
+      "comment": "M2 screw clearance"
+    },
+    {
+      "name": "insert_bore",
+      "expression": "3.2 mm",
+      "mm": 3.2,
+      "comment": "Provisional M2 heat set pilot; match insert supplier"
+    },
+    {
+      "name": "insert_depth",
+      "expression": "3.2 mm",
+      "mm": 3.2,
+      "comment": "Provisional M2 insert length"
+    },
+    {
+      "name": "screw_head_diameter",
+      "expression": "4.2 mm",
+      "mm": 4.2,
+      "comment": "M2 socket screw counterbore"
+    },
+    {
+      "name": "screw_head_depth",
+      "expression": "1.8 mm",
+      "mm": 1.8,
+      "comment": "Underside case screw recess"
+    },
+    {
+      "name": "usb_width",
+      "expression": "13 mm",
+      "mm": 13.0,
+      "comment": "Cable overmould tunnel width; fit-check chosen cable"
+    },
+    {
+      "name": "usb_height",
+      "expression": "6 mm",
+      "mm": 6.0,
+      "comment": "Cable tunnel height"
+    },
+    {
+      "name": "usb_center_z",
+      "expression": "screen_z - 4.52 mm",
+      "mm": 15.48,
+      "comment": "From official STEP USB shell centre"
+    },
+    {
+      "name": "usb_plug_width",
+      "expression": "16.6 mm",
+      "mm": 16.6,
+      "comment": "Future TPU plug flange pocket"
+    },
+    {
+      "name": "usb_plug_height",
+      "expression": "8 mm",
+      "mm": 8.0,
+      "comment": "Future TPU plug flange pocket"
+    },
+    {
+      "name": "switch_bore",
+      "expression": "6 mm",
+      "mm": 6.0,
+      "comment": "Panel switch provision; capped until selected"
+    },
+    {
+      "name": "switch_z",
+      "expression": "6 mm",
+      "mm": 6.0,
+      "comment": "Side control centre height"
+    },
+    {
+      "name": "mount_plate_diameter",
+      "expression": "32 mm",
+      "mm": 32.0,
+      "comment": "Replaceable cartridge flange"
+    },
+    {
+      "name": "mount_pad_height",
+      "expression": "0 mm",
+      "mm": 0.0,
+      "comment": "Mount datum; zero keeps lower shell flat for printing"
+    },
+    {
+      "name": "mount_plate_thickness",
+      "expression": "2.5 mm",
+      "mm": 2.5,
+      "comment": "Replaceable flange thickness"
+    },
+    {
+      "name": "mount_screw_pitch",
+      "expression": "24 mm",
+      "mm": 24.0,
+      "comment": "Custom cartridge fasteners, not a Garmin standard"
+    },
+    {
+      "name": "mount_neck_diameter",
+      "expression": "18.5 mm",
+      "mm": 18.5,
+      "comment": "Provisional male quarter-turn fit"
+    },
+    {
+      "name": "mount_neck_height",
+      "expression": "2 mm",
+      "mm": 2.0,
+      "comment": "Gap above ears"
+    },
+    {
+      "name": "mount_tab_span",
+      "expression": "24.4 mm",
+      "mm": 24.4,
+      "comment": "Provisional ear tip diameter; physical fit test required"
+    },
+    {
+      "name": "mount_tab_width",
+      "expression": "9 mm",
+      "mm": 9.0,
+      "comment": "Provisional opposing ear width"
+    },
+    {
+      "name": "mount_tab_thickness",
+      "expression": "1.8 mm",
+      "mm": 1.8,
+      "comment": "Provisional engagement ear thickness"
+    }
+  ],
+  "parts": [
+    {
+      "name": "01 Bottom shell - PETG",
+      "body_count": 1,
+      "bodies": [
+        {
+          "name": "01 Bottom shell solid 1",
+          "solid": true,
+          "volume_cm3": 12.747388362019205
+        }
+      ]
+    },
+    {
+      "name": "02 Top shell and bezel - PETG",
+      "body_count": 1,
+      "bodies": [
+        {
+          "name": "02 Top shell and bezel solid 1",
+          "solid": true,
+          "volume_cm3": 7.622287646472914
+        }
+      ]
+    },
+    {
+      "name": "03 Removable electronics carrier - PETG",
+      "body_count": 1,
+      "bodies": [
+        {
+          "name": "03 Removable electronics carrier solid 1",
+          "solid": true,
+          "volume_cm3": 1.3233094921978512
+        }
+      ]
+    },
+    {
+      "name": "04 Replaceable quarter turn cartridge - FIT TEST",
+      "body_count": 1,
+      "bodies": [
+        {
+          "name": "04 Replaceable quarter turn cartridge solid 1",
+          "solid": true,
+          "volume_cm3": 2.884475999416111
+        }
+      ]
+    },
+    {
+      "name": "05 Cover lens - polycarbonate REFERENCE",
+      "body_count": 1,
+      "bodies": [
+        {
+          "name": "05 Cover lens solid 1",
+          "solid": true,
+          "volume_cm3": 1.1341149479459651
+        }
+      ]
+    },
+    {
+      "name": "06 Battery - 500 mAh REFERENCE",
+      "body_count": 1,
+      "bodies": [
+        {
+          "name": "06 Battery solid 1",
+          "solid": true,
+          "volume_cm3": 5.249999999999999
+        }
+      ]
+    },
+    {
+      "name": "07 Switch blanking cap - TPU fit prototype",
+      "body_count": 1,
+      "bodies": [
+        {
+          "name": "07 Switch blanking cap solid 1",
+          "solid": true,
+          "volume_cm3": 0.15560308413230933
+        }
+      ]
+    }
+  ],
+  "timeline_issues": []
+}

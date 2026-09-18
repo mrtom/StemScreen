@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/Users/tom/.codex/.chatgpt-projects/g-p-6a9d8d1c1284819184e1e62b811bf19b/enclosure-v01/BikeStemEnclosure/BikeStemEnclosure.py", line 135, in run
+    disk(bottom,'Outer lower shell','case_diameter','0 mm','seam_z')
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/tom/.codex/.chatgpt-projects/g-p-6a9d8d1c1284819184e1e62b811bf19b/enclosure-v01/BikeStemEnclosure/BikeStemEnclosure.py", line 53, in disk
+    s=sketch(c,name,z);circle(s,dia,x,y);return extr(c,s,depth,op,name)
+                       ~~~~~~^^^^^^^^^^^
+  File "/Users/tom/.codex/.chatgpt-projects/g-p-6a9d8d1c1284819184e1e62b811bf19b/enclosure-v01/BikeStemEnclosure/BikeStemEnclosure.py", line 35, in circle
+    s.sketchDimensions.addDiameterDimension(e,pt(x,y)).parameter.expression=dia
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/Users/tom/Library/Application Support/Autodesk/webdeploy/production/4fcc3ec853a7fe76514fe04cc5fd7741e6b2c4ff/Autodesk Fusion.app/Contents/Api/Python/packages/adsk/fusion.py", line 70603, in addDiameterDimension
+    return _fusion.SketchDimensions_addDiameterDimension(self, entity, textPoint, isDriving)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: 3 : Some input argument is invalid.

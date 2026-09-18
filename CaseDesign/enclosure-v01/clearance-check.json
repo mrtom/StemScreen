@@ -1,0 +1,105 @@
+{
+  "interference_candidates": 1263,
+  "boolean_tests": 417,
+  "overlaps": [],
+  "parameter_test": {
+    "parameter": "pcb_clearance",
+    "from": "0.4 mm",
+    "to": "0.6 mm",
+    "restored": true,
+    "issues": []
+  },
+  "bodies": [
+    {
+      "name": "01 Bottom shell - PETG",
+      "min_mm": [
+        -27.250000000000007,
+        -27.250000000000007,
+        0.0
+      ],
+      "max_mm": [
+        27.250000000000007,
+        27.250000000000007,
+        10.600000000000001
+      ]
+    },
+    {
+      "name": "02 Top shell and bezel - PETG",
+      "min_mm": [
+        -27.250000000000007,
+        -27.250000000000007,
+        10.600000000000001
+      ],
+      "max_mm": [
+        27.250000000000007,
+        27.250000000000007,
+        22.5
+      ]
+    },
+    {
+      "name": "03 Removable electronics carrier - PETG",
+      "min_mm": [
+        -24.2,
+        -19.750000000000004,
+        10.600000000000001
+      ],
+      "max_mm": [
+        24.2,
+        24.2,
+        18.2
+      ]
+    },
+    {
+      "name": "04 Replaceable quarter turn cartridge - FIT TEST",
+      "min_mm": [
+        -16.0,
+        -16.0,
+        -6.3
+      ],
+      "max_mm": [
+        16.0,
+        16.0,
+        0.0
+      ]
+    },
+    {
+      "name": "05 Cover lens - polycarbonate REFERENCE",
+      "min_mm": [
+        -19.0,
+        -19.0,
+        20.5
+      ],
+      "max_mm": [
+        19.0,
+        19.0,
+        21.5
+      ]
+    },
+    {
+      "name": "06 Battery - 500 mAh REFERENCE",
+      "min_mm": [
+        -15.0,
+        -17.5,
+        4.7
+      ],
+      "max_mm": [
+        15.0,
+        17.5,
+        9.7
+      ]
+    },
+    {
+      "name": "07 Switch blanking cap - TPU fit prototype",
+      "min_mm": [
+        24.250000000000004,
+        -4.500000000000001,
+        1.5000000000000002
+      ],
+      "max_mm": [
+        28.450000000000006,
+        4.500000000000001,
+        10.500000000000004
+      ]
+    }
+  ]
+}

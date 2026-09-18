@@ -1,0 +1,107 @@
+[
+  {
+    "file": "01_Bottom_shell.stl",
+    "triangles": 5472,
+    "closed_manifold": true,
+    "connected_shells": 1,
+    "original_bounds_mm": [
+      [
+        -27.25,
+        27.25
+      ],
+      [
+        -27.246950149536133,
+        27.246950149536133
+      ],
+      [
+        0.0,
+        10.600000381469727
+      ]
+    ],
+    "print_height_mm": 10.600000381469727
+  },
+  {
+    "file": "02_Top_shell_and_bezel.stl",
+    "triangles": 4292,
+    "closed_manifold": true,
+    "connected_shells": 1,
+    "original_bounds_mm": [
+      [
+        -27.25,
+        27.237804412841797
+      ],
+      [
+        -27.246950149536133,
+        27.246950149536133
+      ],
+      [
+        10.600000381469727,
+        22.5
+      ]
+    ],
+    "print_height_mm": 11.899999618530273
+  },
+  {
+    "file": "03_Removable_electronics_carrier.stl",
+    "triangles": 2556,
+    "closed_manifold": true,
+    "connected_shells": 1,
+    "original_bounds_mm": [
+      [
+        -24.200000762939453,
+        24.200000762939453
+      ],
+      [
+        -19.747604370117188,
+        24.200000762939453
+      ],
+      [
+        10.600000381469727,
+        18.200000762939453
+      ]
+    ],
+    "print_height_mm": 7.600000381469727
+  },
+  {
+    "file": "04_Replaceable_quarter_turn_cartridge.stl",
+    "triangles": 1432,
+    "closed_manifold": true,
+    "connected_shells": 1,
+    "original_bounds_mm": [
+      [
+        -16.0,
+        15.992838859558105
+      ],
+      [
+        -15.998209953308105,
+        15.998209953308105
+      ],
+      [
+        -6.300000190734863,
+        0.0
+      ]
+    ],
+    "print_height_mm": 6.300000190734863
+  },
+  {
+    "file": "07_Switch_blanking_cap.stl",
+    "triangles": 740,
+    "closed_manifold": true,
+    "connected_shells": 1,
+    "original_bounds_mm": [
+      [
+        24.25,
+        28.450000762939453
+      ],
+      [
+        -4.499476909637451,
+        4.499476909637451
+      ],
+      [
+        1.5020930767059326,
+        10.5
+      ]
+    ],
+    "print_height_mm": 4.200000762939453
+  }
+]

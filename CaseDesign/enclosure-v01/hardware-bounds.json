@@ -1,0 +1,2900 @@
+[
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+RP2040-LCD-1_28-TFT_TP_ASM:1+1_28INCH-240X240-TFT:1",
+    "body": "Body1",
+    "min": [
+      -17.8,
+      -21.024,
+      -1.7
+    ],
+    "max": [
+      17.8,
+      17.8,
+      0.0
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+BOARD:1",
+    "body": "Body1",
+    "min": [
+      -18.2618,
+      -21.1201,
+      -3.4
+    ],
+    "max": [
+      18.2614,
+      18.3917,
+      -1.8
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R1_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:1+USER_LIBRARY-RES_0603-0201_1:1",
+    "body": "Body1",
+    "min": [
+      2.9933,
+      -10.5714,
+      -3.7
+    ],
+    "max": [
+      3.3233,
+      -9.9414,
+      -3.425
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R1_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:1+USER_LIBRARY-RES_0603-0201_2:1",
+    "body": "Body1",
+    "min": [
+      2.9933,
+      -10.0164,
+      -3.725
+    ],
+    "max": [
+      3.3233,
+      -9.9164,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R1_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:1+USER_LIBRARY-RES_0603-0201_3:1",
+    "body": "Body1",
+    "min": [
+      2.9933,
+      -10.5964,
+      -3.725
+    ],
+    "max": [
+      3.3233,
+      -10.4964,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R1_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:1+USER_LIBRARY-RES_0603-0201_4:1",
+    "body": "Body1",
+    "min": [
+      2.9933,
+      -10.4964,
+      -3.735
+    ],
+    "max": [
+      3.3233,
+      -10.0164,
+      -3.7
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+D1_ASM:1+618634320_ASM:1+EXTRUDED-16000:1",
+    "body": "Body1",
+    "min": [
+      5.4374,
+      -17.5722,
+      -4.886
+    ],
+    "max": [
+      6.9374,
+      -13.6722,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+U4_ASM:1+1377469392_ASM:1+CYLINDER-16555:1",
+    "body": "Body1",
+    "min": [
+      1.8318,
+      -2.7624,
+      -4.28
+    ],
+    "max": [
+      2.0318,
+      -2.5624,
+      -3.7
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+U4_ASM:1+1377509232_ASM:1+EXTRUDED-16701:1",
+    "body": "Body1",
+    "min": [
+      1.5318,
+      -2.9624,
+      -4.26
+    ],
+    "max": [
+      4.7318,
+      -0.3124,
+      -3.5
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R13_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:2+USER_LIBRARY-RES_0603-0201_1:1",
+    "body": "Body1",
+    "min": [
+      7.4067,
+      -2.8015,
+      -3.7
+    ],
+    "max": [
+      7.7367,
+      -2.1715,
+      -3.425
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R13_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:2+USER_LIBRARY-RES_0603-0201_2:1",
+    "body": "Body1",
+    "min": [
+      7.4067,
+      -2.8265,
+      -3.725
+    ],
+    "max": [
+      7.7367,
+      -2.7265,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R13_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:2+USER_LIBRARY-RES_0603-0201_3:1",
+    "body": "Body1",
+    "min": [
+      7.4067,
+      -2.2465,
+      -3.725
+    ],
+    "max": [
+      7.7367,
+      -2.1465,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R13_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:2+USER_LIBRARY-RES_0603-0201_4:1",
+    "body": "Body1",
+    "min": [
+      7.4067,
+      -2.7265,
+      -3.735
+    ],
+    "max": [
+      7.7367,
+      -2.2465,
+      -3.7
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R11_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:3+USER_LIBRARY-RES_0603-0201_1:1",
+    "body": "Body1",
+    "min": [
+      6.5466,
+      -2.8015,
+      -3.7
+    ],
+    "max": [
+      6.8766,
+      -2.1715,
+      -3.425
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R11_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:3+USER_LIBRARY-RES_0603-0201_2:1",
+    "body": "Body1",
+    "min": [
+      6.5466,
+      -2.8265,
+      -3.725
+    ],
+    "max": [
+      6.8766,
+      -2.7265,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R11_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:3+USER_LIBRARY-RES_0603-0201_3:1",
+    "body": "Body1",
+    "min": [
+      6.5466,
+      -2.2465,
+      -3.725
+    ],
+    "max": [
+      6.8766,
+      -2.1465,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R11_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:3+USER_LIBRARY-RES_0603-0201_4:1",
+    "body": "Body1",
+    "min": [
+      6.5466,
+      -2.7265,
+      -3.735
+    ],
+    "max": [
+      6.8766,
+      -2.2465,
+      -3.7
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+H1_ASM:1+1377506416_ASM:1+EXTRUDED-17152:1",
+    "body": "Body1",
+    "min": [
+      -15.0017,
+      -6.3723,
+      -7.9
+    ],
+    "max": [
+      -12.0017,
+      6.7278,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+H2_ASM:1+1377506416_ASM:2+EXTRUDED-17152:1",
+    "body": "Body1",
+    "min": [
+      11.9982,
+      -6.3723,
+      -7.9
+    ],
+    "max": [
+      14.9982,
+      6.7278,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C19_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:1+USER_LIBRARY-0201_0603M__CAP_1:1",
+    "body": "Body1",
+    "min": [
+      6.5593,
+      -1.3215,
+      -3.7073
+    ],
+    "max": [
+      6.8641,
+      -0.8338,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C19_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:1+USER_LIBRARY-0201_0603M__CAP_2:1",
+    "body": "Body1",
+    "min": [
+      6.5593,
+      -1.3825,
+      -3.7048
+    ],
+    "max": [
+      6.8641,
+      -1.3215,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C19_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:1+USER_LIBRARY-0201_0603M__CAP_3:1",
+    "body": "Body1",
+    "min": [
+      6.5593,
+      -0.8338,
+      -3.7048
+    ],
+    "max": [
+      6.8641,
+      -0.7729,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+X1_ASM:1+588778928_ASM:1+EXTRUDED-28486:1",
+    "body": "Body1",
+    "min": [
+      -10.0491,
+      4.6947,
+      -4.4
+    ],
+    "max": [
+      -8.4491,
+      6.6947,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+U3_ASM:1+SW3DPS-SOT-23-5-DEFAULT:1",
+    "body": "Body1",
+    "min": [
+      -0.9834,
+      -7.3611,
+      -4.45
+    ],
+    "max": [
+      2.0166,
+      -4.8611,
+      -3.35
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+U1_ASM:1+1160803568_ASM:1+EXTRUDED-34339:1",
+    "body": "Body1",
+    "min": [
+      6.8152,
+      -12.3286,
+      -4.3
+    ],
+    "max": [
+      9.9152,
+      -9.1786,
+      -3.42
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+TYPE_C1_ASM:1+698B116-264-211_ASM:1+SOLID-34818:1",
+    "body": "Body1",
+    "min": [
+      -4.1815,
+      -20.6379,
+      -6.3
+    ],
+    "max": [
+      4.1585,
+      -13.5879,
+      -2.74
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+TYPE_C1_ASM:1+698B116-264-211_ASM:1+SOLID-125032:1",
+    "body": "Body1",
+    "min": [
+      2.1135,
+      -14.0997,
+      -4.79
+    ],
+    "max": [
+      2.3785,
+      -13.2297,
+      -3.34
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+TYPE_C1_ASM:1+698B116-264-211_ASM:1+SOLID-126147:1",
+    "body": "Body1",
+    "min": [
+      -2.4015,
+      -14.0997,
+      -4.79
+    ],
+    "max": [
+      -2.1365,
+      -13.2297,
+      -3.34
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+TYPE_C1_ASM:1+698B116-264-211_ASM:1+SOLID-127197:1",
+    "body": "Body1",
+    "min": [
+      1.6135,
+      -14.0997,
+      -4.79
+    ],
+    "max": [
+      1.8635,
+      -13.2297,
+      -3.34
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+TYPE_C1_ASM:1+698B116-264-211_ASM:1+SOLID-128453:1",
+    "body": "Body1",
+    "min": [
+      -1.8865,
+      -14.0997,
+      -4.79
+    ],
+    "max": [
+      -1.6365,
+      -13.2297,
+      -3.34
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+TYPE_C1_ASM:1+698B116-264-211_ASM:1+SOLID-129640:1",
+    "body": "Body1",
+    "min": [
+      0.1135,
+      -19.81,
+      -5.37
+    ],
+    "max": [
+      0.3635,
+      -13.2297,
+      -3.34
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+TYPE_C1_ASM:1+698B116-264-211_ASM:1+SOLID-132043:1",
+    "body": "Body1",
+    "min": [
+      -0.3865,
+      -19.81,
+      -5.37
+    ],
+    "max": [
+      -0.1365,
+      -13.2297,
+      -3.34
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+TYPE_C1_ASM:1+698B116-264-211_ASM:1+SOLID-134469:1",
+    "body": "Body1",
+    "min": [
+      0.6135,
+      -19.81,
+      -4.91
+    ],
+    "max": [
+      0.8635,
+      -13.2297,
+      -3.34
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+TYPE_C1_ASM:1+698B116-264-211_ASM:1+SOLID-136752:1",
+    "body": "Body1",
+    "min": [
+      -0.8865,
+      -19.81,
+      -4.91
+    ],
+    "max": [
+      -0.6365,
+      -13.2297,
+      -3.34
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+TYPE_C1_ASM:1+698B116-264-211_ASM:1+SOLID-139058:1",
+    "body": "Body1",
+    "min": [
+      -0.3865,
+      -19.81,
+      -4.91
+    ],
+    "max": [
+      -0.1365,
+      -14.0997,
+      -4.67
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+TYPE_C1_ASM:1+698B116-264-211_ASM:1+SOLID-140370:1",
+    "body": "Body1",
+    "min": [
+      0.1135,
+      -19.81,
+      -4.91
+    ],
+    "max": [
+      0.3635,
+      -14.0997,
+      -4.67
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+TYPE_C1_ASM:1+698B116-264-211_ASM:1+SOLID-141590:1",
+    "body": "Body1",
+    "min": [
+      -3.4365,
+      -20.36,
+      -4.91
+    ],
+    "max": [
+      -2.5865,
+      -13.2297,
+      -3.34
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+TYPE_C1_ASM:1+698B116-264-211_ASM:1+SOLID-145145:1",
+    "body": "Body1",
+    "min": [
+      -1.4365,
+      -20.01,
+      -5.37
+    ],
+    "max": [
+      -1.0865,
+      -13.2297,
+      -3.34
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+TYPE_C1_ASM:1+698B116-264-211_ASM:1+SOLID-149216:1",
+    "body": "Body1",
+    "min": [
+      -1.4365,
+      -20.01,
+      -4.91
+    ],
+    "max": [
+      -1.0865,
+      -14.0997,
+      -4.67
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+TYPE_C1_ASM:1+698B116-264-211_ASM:1+SOLID-152100:1",
+    "body": "Body1",
+    "min": [
+      1.0635,
+      -20.01,
+      -5.37
+    ],
+    "max": [
+      1.4135,
+      -13.2297,
+      -3.34
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+TYPE_C1_ASM:1+698B116-264-211_ASM:1+SOLID-156312:1",
+    "body": "Body1",
+    "min": [
+      1.0635,
+      -20.01,
+      -4.91
+    ],
+    "max": [
+      1.4135,
+      -14.0997,
+      -4.67
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+TYPE_C1_ASM:1+698B116-264-211_ASM:1+SOLID-159402:1",
+    "body": "Body1",
+    "min": [
+      2.5635,
+      -20.36,
+      -4.91
+    ],
+    "max": [
+      3.4135,
+      -13.2297,
+      -3.34
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+TYPE_C1_ASM:1+698B116-264-211_ASM:1+SOLID-162976:1",
+    "body": "Body1",
+    "min": [
+      0.6135,
+      -19.81,
+      -5.37
+    ],
+    "max": [
+      0.8635,
+      -15.5997,
+      -5.13
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+TYPE_C1_ASM:1+698B116-264-211_ASM:1+SOLID-164297:1",
+    "body": "Body1",
+    "min": [
+      -0.8865,
+      -19.81,
+      -5.37
+    ],
+    "max": [
+      -0.6365,
+      -15.5997,
+      -5.13
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+TYPE_C1_ASM:1+698B116-264-211_ASM:1+SOLID-165710:1",
+    "body": "Body1",
+    "min": [
+      -3.5365,
+      -20.36,
+      -5.37
+    ],
+    "max": [
+      -2.4215,
+      -13.2297,
+      -3.34
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+TYPE_C1_ASM:1+698B116-264-211_ASM:1+SOLID-170726:1",
+    "body": "Body1",
+    "min": [
+      2.3985,
+      -20.36,
+      -5.37
+    ],
+    "max": [
+      3.5135,
+      -13.2297,
+      -3.34
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+TYPE_C1_ASM:1+698B116-264-211_ASM:1+SOLID-175807:1",
+    "body": "Body1",
+    "min": [
+      -4.8015,
+      -20.9379,
+      -6.6
+    ],
+    "max": [
+      4.7785,
+      -13.4079,
+      -2.44
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R18_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:4+USER_LIBRARY-RES_0603-0201_1:1",
+    "body": "Body1",
+    "min": [
+      -13.4534,
+      7.4649,
+      -3.7
+    ],
+    "max": [
+      -13.1234,
+      8.0949,
+      -3.425
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R18_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:4+USER_LIBRARY-RES_0603-0201_2:1",
+    "body": "Body1",
+    "min": [
+      -13.4534,
+      7.4399,
+      -3.725
+    ],
+    "max": [
+      -13.1234,
+      7.5399,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R18_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:4+USER_LIBRARY-RES_0603-0201_3:1",
+    "body": "Body1",
+    "min": [
+      -13.4534,
+      8.0199,
+      -3.725
+    ],
+    "max": [
+      -13.1234,
+      8.1199,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R18_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:4+USER_LIBRARY-RES_0603-0201_4:1",
+    "body": "Body1",
+    "min": [
+      -13.4534,
+      7.5399,
+      -3.735
+    ],
+    "max": [
+      -13.1234,
+      8.0199,
+      -3.7
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R17_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:5+USER_LIBRARY-RES_0603-0201_1:1",
+    "body": "Body1",
+    "min": [
+      -6.4811,
+      -16.2553,
+      -3.7
+    ],
+    "max": [
+      -5.8511,
+      -15.9253,
+      -3.425
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R17_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:5+USER_LIBRARY-RES_0603-0201_2:1",
+    "body": "Body1",
+    "min": [
+      -5.9261,
+      -16.2553,
+      -3.725
+    ],
+    "max": [
+      -5.8261,
+      -15.9253,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R17_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:5+USER_LIBRARY-RES_0603-0201_3:1",
+    "body": "Body1",
+    "min": [
+      -6.5061,
+      -16.2553,
+      -3.725
+    ],
+    "max": [
+      -6.4061,
+      -15.9253,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R17_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:5+USER_LIBRARY-RES_0603-0201_4:1",
+    "body": "Body1",
+    "min": [
+      -6.4061,
+      -16.2553,
+      -3.735
+    ],
+    "max": [
+      -5.9261,
+      -15.9253,
+      -3.7
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R16_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:6+USER_LIBRARY-RES_0603-0201_1:1",
+    "body": "Body1",
+    "min": [
+      -6.4811,
+      -15.5416,
+      -3.7
+    ],
+    "max": [
+      -5.8511,
+      -15.2116,
+      -3.425
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R16_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:6+USER_LIBRARY-RES_0603-0201_2:1",
+    "body": "Body1",
+    "min": [
+      -5.9261,
+      -15.5416,
+      -3.725
+    ],
+    "max": [
+      -5.8261,
+      -15.2116,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R16_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:6+USER_LIBRARY-RES_0603-0201_3:1",
+    "body": "Body1",
+    "min": [
+      -6.5061,
+      -15.5416,
+      -3.725
+    ],
+    "max": [
+      -6.4061,
+      -15.2116,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R16_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:6+USER_LIBRARY-RES_0603-0201_4:1",
+    "body": "Body1",
+    "min": [
+      -6.4061,
+      -15.5416,
+      -3.735
+    ],
+    "max": [
+      -5.9261,
+      -15.2116,
+      -3.7
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R10_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:7+USER_LIBRARY-RES_0603-0201_1:1",
+    "body": "Body1",
+    "min": [
+      -9.5927,
+      13.3784,
+      -3.7
+    ],
+    "max": [
+      -8.9627,
+      13.7084,
+      -3.425
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R10_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:7+USER_LIBRARY-RES_0603-0201_2:1",
+    "body": "Body1",
+    "min": [
+      -9.6177,
+      13.3784,
+      -3.725
+    ],
+    "max": [
+      -9.5177,
+      13.7084,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R10_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:7+USER_LIBRARY-RES_0603-0201_3:1",
+    "body": "Body1",
+    "min": [
+      -9.0377,
+      13.3784,
+      -3.725
+    ],
+    "max": [
+      -8.9377,
+      13.7084,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R10_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:7+USER_LIBRARY-RES_0603-0201_4:1",
+    "body": "Body1",
+    "min": [
+      -9.5177,
+      13.3784,
+      -3.735
+    ],
+    "max": [
+      -9.0377,
+      13.7084,
+      -3.7
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R9_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:8+USER_LIBRARY-RES_0603-0201_1:1",
+    "body": "Body1",
+    "min": [
+      7.3644,
+      -1.3928,
+      -3.7
+    ],
+    "max": [
+      7.6944,
+      -0.7628,
+      -3.425
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R9_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:8+USER_LIBRARY-RES_0603-0201_2:1",
+    "body": "Body1",
+    "min": [
+      7.3644,
+      -1.4178,
+      -3.725
+    ],
+    "max": [
+      7.6944,
+      -1.3178,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R9_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:8+USER_LIBRARY-RES_0603-0201_3:1",
+    "body": "Body1",
+    "min": [
+      7.3644,
+      -0.8378,
+      -3.725
+    ],
+    "max": [
+      7.6944,
+      -0.7378,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R9_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:8+USER_LIBRARY-RES_0603-0201_4:1",
+    "body": "Body1",
+    "min": [
+      7.3644,
+      -1.3178,
+      -3.735
+    ],
+    "max": [
+      7.6944,
+      -0.8378,
+      -3.7
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R6_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:9+USER_LIBRARY-RES_0603-0201_1:1",
+    "body": "Body1",
+    "min": [
+      -0.5353,
+      -10.5682,
+      -3.7
+    ],
+    "max": [
+      -0.2053,
+      -9.9382,
+      -3.425
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R6_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:9+USER_LIBRARY-RES_0603-0201_2:1",
+    "body": "Body1",
+    "min": [
+      -0.5353,
+      -10.0132,
+      -3.725
+    ],
+    "max": [
+      -0.2053,
+      -9.9132,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R6_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:9+USER_LIBRARY-RES_0603-0201_3:1",
+    "body": "Body1",
+    "min": [
+      -0.5353,
+      -10.5932,
+      -3.725
+    ],
+    "max": [
+      -0.2053,
+      -10.4932,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R6_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:9+USER_LIBRARY-RES_0603-0201_4:1",
+    "body": "Body1",
+    "min": [
+      -0.5353,
+      -10.4932,
+      -3.735
+    ],
+    "max": [
+      -0.2053,
+      -10.0132,
+      -3.7
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R2_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:10+USER_LIBRARY-RES_0603-0201_1:1",
+    "body": "Body1",
+    "min": [
+      0.2882,
+      -10.5682,
+      -3.7
+    ],
+    "max": [
+      0.6182,
+      -9.9382,
+      -3.425
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R2_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:10+USER_LIBRARY-RES_0603-0201_2:1",
+    "body": "Body1",
+    "min": [
+      0.2882,
+      -10.0132,
+      -3.725
+    ],
+    "max": [
+      0.6182,
+      -9.9132,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R2_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:10+USER_LIBRARY-RES_0603-0201_3:1",
+    "body": "Body1",
+    "min": [
+      0.2882,
+      -10.5932,
+      -3.725
+    ],
+    "max": [
+      0.6182,
+      -10.4932,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R2_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:10+USER_LIBRARY-RES_0603-0201_4:1",
+    "body": "Body1",
+    "min": [
+      0.2882,
+      -10.4932,
+      -3.735
+    ],
+    "max": [
+      0.6182,
+      -10.0132,
+      -3.7
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R8_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:11+USER_LIBRARY-RES_0603-0201_1:1",
+    "body": "Body1",
+    "min": [
+      -2.1822,
+      -10.5691,
+      -3.7
+    ],
+    "max": [
+      -1.8522,
+      -9.9391,
+      -3.425
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R8_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:11+USER_LIBRARY-RES_0603-0201_2:1",
+    "body": "Body1",
+    "min": [
+      -2.1822,
+      -10.5941,
+      -3.725
+    ],
+    "max": [
+      -1.8522,
+      -10.4941,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R8_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:11+USER_LIBRARY-RES_0603-0201_3:1",
+    "body": "Body1",
+    "min": [
+      -2.1822,
+      -10.0141,
+      -3.725
+    ],
+    "max": [
+      -1.8522,
+      -9.9141,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R8_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:11+USER_LIBRARY-RES_0603-0201_4:1",
+    "body": "Body1",
+    "min": [
+      -2.1822,
+      -10.4941,
+      -3.735
+    ],
+    "max": [
+      -1.8522,
+      -10.0141,
+      -3.7
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R7_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:12+USER_LIBRARY-RES_0603-0201_1:1",
+    "body": "Body1",
+    "min": [
+      8.14,
+      -2.8398,
+      -3.7
+    ],
+    "max": [
+      8.47,
+      -2.2098,
+      -3.425
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R7_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:12+USER_LIBRARY-RES_0603-0201_2:1",
+    "body": "Body1",
+    "min": [
+      8.14,
+      -2.8648,
+      -3.725
+    ],
+    "max": [
+      8.47,
+      -2.7648,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R7_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:12+USER_LIBRARY-RES_0603-0201_3:1",
+    "body": "Body1",
+    "min": [
+      8.14,
+      -2.2848,
+      -3.725
+    ],
+    "max": [
+      8.47,
+      -2.1848,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R7_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:12+USER_LIBRARY-RES_0603-0201_4:1",
+    "body": "Body1",
+    "min": [
+      8.14,
+      -2.7648,
+      -3.735
+    ],
+    "max": [
+      8.47,
+      -2.2848,
+      -3.7
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R3_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:13+USER_LIBRARY-RES_0603-0201_1:1",
+    "body": "Body1",
+    "min": [
+      8.8038,
+      -14.2091,
+      -3.7
+    ],
+    "max": [
+      9.1338,
+      -13.5791,
+      -3.425
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R3_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:13+USER_LIBRARY-RES_0603-0201_2:1",
+    "body": "Body1",
+    "min": [
+      8.8038,
+      -13.6541,
+      -3.725
+    ],
+    "max": [
+      9.1338,
+      -13.5541,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R3_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:13+USER_LIBRARY-RES_0603-0201_3:1",
+    "body": "Body1",
+    "min": [
+      8.8038,
+      -14.2341,
+      -3.725
+    ],
+    "max": [
+      9.1338,
+      -14.1341,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R3_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:13+USER_LIBRARY-RES_0603-0201_4:1",
+    "body": "Body1",
+    "min": [
+      8.8038,
+      -14.1341,
+      -3.735
+    ],
+    "max": [
+      9.1338,
+      -13.6541,
+      -3.7
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R5_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:14+USER_LIBRARY-RES_0603-0201_1:1",
+    "body": "Body1",
+    "min": [
+      -1.3588,
+      -10.5691,
+      -3.7
+    ],
+    "max": [
+      -1.0288,
+      -9.9391,
+      -3.425
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R5_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:14+USER_LIBRARY-RES_0603-0201_2:1",
+    "body": "Body1",
+    "min": [
+      -1.3588,
+      -10.5941,
+      -3.725
+    ],
+    "max": [
+      -1.0288,
+      -10.4941,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R5_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:14+USER_LIBRARY-RES_0603-0201_3:1",
+    "body": "Body1",
+    "min": [
+      -1.3588,
+      -10.0141,
+      -3.725
+    ],
+    "max": [
+      -1.0288,
+      -9.9141,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R5_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:14+USER_LIBRARY-RES_0603-0201_4:1",
+    "body": "Body1",
+    "min": [
+      -1.3588,
+      -10.4941,
+      -3.735
+    ],
+    "max": [
+      -1.0288,
+      -10.0141,
+      -3.7
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R4_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:15+USER_LIBRARY-RES_0603-0201_1:1",
+    "body": "Body1",
+    "min": [
+      9.0003,
+      -2.8397,
+      -3.7
+    ],
+    "max": [
+      9.3303,
+      -2.2097,
+      -3.425
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R4_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:15+USER_LIBRARY-RES_0603-0201_2:1",
+    "body": "Body1",
+    "min": [
+      9.0003,
+      -2.2847,
+      -3.725
+    ],
+    "max": [
+      9.3303,
+      -2.1847,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R4_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:15+USER_LIBRARY-RES_0603-0201_3:1",
+    "body": "Body1",
+    "min": [
+      9.0003,
+      -2.8647,
+      -3.725
+    ],
+    "max": [
+      9.3303,
+      -2.7647,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+R4_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:15+USER_LIBRARY-RES_0603-0201_4:1",
+    "body": "Body1",
+    "min": [
+      9.0003,
+      -2.7647,
+      -3.735
+    ],
+    "max": [
+      9.3303,
+      -2.2847,
+      -3.7
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+Q1_ASM:1+1160802928_ASM:1+EXTRUDED-221459:1",
+    "body": "Body1",
+    "min": [
+      1.6277,
+      -11.4241,
+      -3.56
+    ],
+    "max": [
+      2.0722,
+      -10.6621,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+Q1_ASM:1+1160803440_ASM:1+EXTRUDED-221831:1",
+    "body": "Body1",
+    "min": [
+      1.0373,
+      -10.6366,
+      -3.95
+    ],
+    "max": [
+      2.5385,
+      -9.9307,
+      -3.445
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+Q1_ASM:1+1057508016_ASM:1+EXTRUDED-222203:1",
+    "body": "Body1",
+    "min": [
+      1.088,
+      -9.8748,
+      -3.56
+    ],
+    "max": [
+      1.596,
+      -9.062,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+Q1_ASM:1+618636240_ASM:1+EXTRUDED-222575:1",
+    "body": "Body1",
+    "min": [
+      2.0723,
+      -9.862,
+      -3.56
+    ],
+    "max": [
+      2.5929,
+      -9.0746,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+L1_ASM:1+1377505776_ASM:1+EXTRUDED-223534:1",
+    "body": "Body1",
+    "min": [
+      7.0675,
+      -8.0436,
+      -5.0
+    ],
+    "max": [
+      9.9404,
+      -5.7576,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C28_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:2+USER_LIBRARY-0201_0603M__CAP_1:1",
+    "body": "Body1",
+    "min": [
+      -9.7806,
+      3.5077,
+      -3.7073
+    ],
+    "max": [
+      -9.4758,
+      3.9954,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C28_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:2+USER_LIBRARY-0201_0603M__CAP_2:1",
+    "body": "Body1",
+    "min": [
+      -9.7806,
+      3.9954,
+      -3.7048
+    ],
+    "max": [
+      -9.4758,
+      4.0563,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C28_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:2+USER_LIBRARY-0201_0603M__CAP_3:1",
+    "body": "Body1",
+    "min": [
+      -9.7806,
+      3.4467,
+      -3.7048
+    ],
+    "max": [
+      -9.4758,
+      3.5077,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C27_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:3+USER_LIBRARY-0201_0603M__CAP_1:1",
+    "body": "Body1",
+    "min": [
+      -8.8188,
+      7.5357,
+      -3.7073
+    ],
+    "max": [
+      -8.514,
+      8.0233,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C27_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:3+USER_LIBRARY-0201_0603M__CAP_2:1",
+    "body": "Body1",
+    "min": [
+      -8.8188,
+      7.4747,
+      -3.7048
+    ],
+    "max": [
+      -8.514,
+      7.5357,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C27_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:3+USER_LIBRARY-0201_0603M__CAP_3:1",
+    "body": "Body1",
+    "min": [
+      -8.8188,
+      8.0233,
+      -3.7048
+    ],
+    "max": [
+      -8.514,
+      8.0843,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C17_ASM:1+C_0402_ASM:1+C_0402-4045_AF0_ASM_ASM:1+C_0402-672_AF0_ASM_ASM:1+_1_10001:1",
+    "body": "Body1",
+    "min": [
+      -3.5283,
+      0.7383,
+      -3.9254
+    ],
+    "max": [
+      -2.9283,
+      1.2383,
+      -3.4254
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C17_ASM:1+C_0402_ASM:1+C_0402-4045_AF0_ASM_ASM:1+C_0402-672_AF0_ASM_ASM:1+3_1_A:1",
+    "body": "Body1",
+    "min": [
+      -2.9283,
+      0.7283,
+      -3.9354
+    ],
+    "max": [
+      -2.7283,
+      1.2483,
+      -3.4154
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C17_ASM:1+C_0402_ASM:1+C_0402-4045_AF0_ASM_ASM:1+C_0402-672_AF0_ASM_ASM:1+2_100:1",
+    "body": "Body1",
+    "min": [
+      -3.7283,
+      0.7283,
+      -3.9354
+    ],
+    "max": [
+      -3.5283,
+      1.2483,
+      -3.4154
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C26_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:4+USER_LIBRARY-0201_0603M__CAP_1:1",
+    "body": "Body1",
+    "min": [
+      -5.3407,
+      11.0896,
+      -3.7073
+    ],
+    "max": [
+      -5.0359,
+      11.5773,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C26_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:4+USER_LIBRARY-0201_0603M__CAP_2:1",
+    "body": "Body1",
+    "min": [
+      -5.3407,
+      11.5773,
+      -3.7048
+    ],
+    "max": [
+      -5.0359,
+      11.6382,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C26_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:4+USER_LIBRARY-0201_0603M__CAP_3:1",
+    "body": "Body1",
+    "min": [
+      -5.3407,
+      11.0286,
+      -3.7048
+    ],
+    "max": [
+      -5.0359,
+      11.0896,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C25_ASM:1+C_0402_ASM:2+C_0402-4045_AF0_ASM_ASM:1+C_0402-672_AF0_ASM_ASM:1+_1_10001:1",
+    "body": "Body1",
+    "min": [
+      -4.7363,
+      12.1807,
+      -3.9254
+    ],
+    "max": [
+      -4.1363,
+      12.6807,
+      -3.4254
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C25_ASM:1+C_0402_ASM:2+C_0402-4045_AF0_ASM_ASM:1+C_0402-672_AF0_ASM_ASM:1+3_1_A:1",
+    "body": "Body1",
+    "min": [
+      -4.1363,
+      12.1707,
+      -3.9354
+    ],
+    "max": [
+      -3.9363,
+      12.6907,
+      -3.4154
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C25_ASM:1+C_0402_ASM:2+C_0402-4045_AF0_ASM_ASM:1+C_0402-672_AF0_ASM_ASM:1+2_100:1",
+    "body": "Body1",
+    "min": [
+      -4.9363,
+      12.1707,
+      -3.9354
+    ],
+    "max": [
+      -4.7363,
+      12.6907,
+      -3.4154
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C24_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:5+USER_LIBRARY-0201_0603M__CAP_1:1",
+    "body": "Body1",
+    "min": [
+      -8.8188,
+      8.758,
+      -3.7073
+    ],
+    "max": [
+      -8.514,
+      9.2456,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C24_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:5+USER_LIBRARY-0201_0603M__CAP_2:1",
+    "body": "Body1",
+    "min": [
+      -8.8188,
+      8.697,
+      -3.7048
+    ],
+    "max": [
+      -8.514,
+      8.758,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C24_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:5+USER_LIBRARY-0201_0603M__CAP_3:1",
+    "body": "Body1",
+    "min": [
+      -8.8188,
+      9.2456,
+      -3.7048
+    ],
+    "max": [
+      -8.514,
+      9.3066,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C23_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:6+USER_LIBRARY-0201_0603M__CAP_1:1",
+    "body": "Body1",
+    "min": [
+      -8.818,
+      9.9872,
+      -3.7073
+    ],
+    "max": [
+      -8.5132,
+      10.4749,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C23_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:6+USER_LIBRARY-0201_0603M__CAP_2:1",
+    "body": "Body1",
+    "min": [
+      -8.818,
+      10.4749,
+      -3.7048
+    ],
+    "max": [
+      -8.5132,
+      10.5359,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C23_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:6+USER_LIBRARY-0201_0603M__CAP_3:1",
+    "body": "Body1",
+    "min": [
+      -8.818,
+      9.9263,
+      -3.7048
+    ],
+    "max": [
+      -8.5132,
+      9.9872,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C22_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:7+USER_LIBRARY-0201_0603M__CAP_1:1",
+    "body": "Body1",
+    "min": [
+      -9.5138,
+      14.3611,
+      -3.7073
+    ],
+    "max": [
+      -9.0262,
+      14.6659,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C22_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:7+USER_LIBRARY-0201_0603M__CAP_2:1",
+    "body": "Body1",
+    "min": [
+      -9.5748,
+      14.3611,
+      -3.7048
+    ],
+    "max": [
+      -9.5138,
+      14.6659,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C22_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:7+USER_LIBRARY-0201_0603M__CAP_3:1",
+    "body": "Body1",
+    "min": [
+      -9.0262,
+      14.3611,
+      -3.7048
+    ],
+    "max": [
+      -8.9652,
+      14.6659,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C21_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:8+USER_LIBRARY-0201_0603M__CAP_1:1",
+    "body": "Body1",
+    "min": [
+      -6.7146,
+      10.9372,
+      -3.7073
+    ],
+    "max": [
+      -6.2269,
+      11.242,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C21_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:8+USER_LIBRARY-0201_0603M__CAP_2:1",
+    "body": "Body1",
+    "min": [
+      -6.7756,
+      10.9372,
+      -3.7048
+    ],
+    "max": [
+      -6.7146,
+      11.242,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C21_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:8+USER_LIBRARY-0201_0603M__CAP_3:1",
+    "body": "Body1",
+    "min": [
+      -6.2269,
+      10.9372,
+      -3.7048
+    ],
+    "max": [
+      -6.166,
+      11.242,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C20_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:9+USER_LIBRARY-0201_0603M__CAP_1:1",
+    "body": "Body1",
+    "min": [
+      -6.7146,
+      13.401,
+      -3.7073
+    ],
+    "max": [
+      -6.2269,
+      13.7058,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C20_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:9+USER_LIBRARY-0201_0603M__CAP_2:1",
+    "body": "Body1",
+    "min": [
+      -6.7756,
+      13.401,
+      -3.7048
+    ],
+    "max": [
+      -6.7146,
+      13.7058,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C20_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:9+USER_LIBRARY-0201_0603M__CAP_3:1",
+    "body": "Body1",
+    "min": [
+      -6.2269,
+      13.401,
+      -3.7048
+    ],
+    "max": [
+      -6.166,
+      13.7058,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C18_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:10+USER_LIBRARY-0201_0603M__CAP_1:1",
+    "body": "Body1",
+    "min": [
+      1.5656,
+      3.1851,
+      -3.7073
+    ],
+    "max": [
+      2.0533,
+      3.4899,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C18_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:10+USER_LIBRARY-0201_0603M__CAP_2:1",
+    "body": "Body1",
+    "min": [
+      1.5047,
+      3.1851,
+      -3.7048
+    ],
+    "max": [
+      1.5656,
+      3.4899,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C18_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:10+USER_LIBRARY-0201_0603M__CAP_3:1",
+    "body": "Body1",
+    "min": [
+      2.0533,
+      3.1851,
+      -3.7048
+    ],
+    "max": [
+      2.1143,
+      3.4899,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C14_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:11+USER_LIBRARY-0201_0603M__CAP_1:1",
+    "body": "Body1",
+    "min": [
+      -1.9726,
+      -5.4229,
+      -3.7073
+    ],
+    "max": [
+      -1.6678,
+      -4.9352,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C14_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:11+USER_LIBRARY-0201_0603M__CAP_2:1",
+    "body": "Body1",
+    "min": [
+      -1.9726,
+      -5.4838,
+      -3.7048
+    ],
+    "max": [
+      -1.6678,
+      -5.4229,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C14_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:11+USER_LIBRARY-0201_0603M__CAP_3:1",
+    "body": "Body1",
+    "min": [
+      -1.9726,
+      -4.9352,
+      -3.7048
+    ],
+    "max": [
+      -1.6678,
+      -4.8742,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C12_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:12+USER_LIBRARY-0201_0603M__CAP_1:1",
+    "body": "Body1",
+    "min": [
+      1.5707,
+      2.4028,
+      -3.7073
+    ],
+    "max": [
+      2.0584,
+      2.7076,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C12_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:12+USER_LIBRARY-0201_0603M__CAP_2:1",
+    "body": "Body1",
+    "min": [
+      1.5097,
+      2.4028,
+      -3.7048
+    ],
+    "max": [
+      1.5707,
+      2.7076,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C12_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:12+USER_LIBRARY-0201_0603M__CAP_3:1",
+    "body": "Body1",
+    "min": [
+      2.0584,
+      2.4028,
+      -3.7048
+    ],
+    "max": [
+      2.1193,
+      2.7076,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C11_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:13+USER_LIBRARY-0201_0603M__CAP_1:1",
+    "body": "Body1",
+    "min": [
+      4.1321,
+      -5.4722,
+      -3.7073
+    ],
+    "max": [
+      4.4369,
+      -4.9845,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C11_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:13+USER_LIBRARY-0201_0603M__CAP_2:1",
+    "body": "Body1",
+    "min": [
+      4.1321,
+      -4.9845,
+      -3.7048
+    ],
+    "max": [
+      4.4369,
+      -4.9235,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C11_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:13+USER_LIBRARY-0201_0603M__CAP_3:1",
+    "body": "Body1",
+    "min": [
+      4.1321,
+      -5.5331,
+      -3.7048
+    ],
+    "max": [
+      4.4369,
+      -5.4722,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C8_ASM:1+1377509488_ASM:1+EXTRUDED-260467:1",
+    "body": "Body1",
+    "min": [
+      11.1784,
+      -11.6593,
+      -3.85
+    ],
+    "max": [
+      12.296,
+      -9.3733,
+      -3.425
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C8_ASM:1+1377509360_ASM:1+EXTRUDED-260839:1",
+    "body": "Body1",
+    "min": [
+      11.1022,
+      -11.9343,
+      -3.86
+    ],
+    "max": [
+      12.3722,
+      -11.6593,
+      -3.401
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C8_ASM:1+1377509360_ASM:2+EXTRUDED-260839:1",
+    "body": "Body1",
+    "min": [
+      11.1022,
+      -9.4854,
+      -3.86
+    ],
+    "max": [
+      12.3722,
+      -9.2104,
+      -3.401
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C3_ASM:1+1377509488_ASM:2+EXTRUDED-260467:1",
+    "body": "Body1",
+    "min": [
+      4.795,
+      -11.4815,
+      -3.85
+    ],
+    "max": [
+      5.9126,
+      -9.1955,
+      -3.425
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C3_ASM:1+1377509360_ASM:3+EXTRUDED-260839:1",
+    "body": "Body1",
+    "min": [
+      4.7188,
+      -11.7565,
+      -3.86
+    ],
+    "max": [
+      5.9888,
+      -11.4815,
+      -3.401
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C3_ASM:1+1377509360_ASM:4+EXTRUDED-260839:1",
+    "body": "Body1",
+    "min": [
+      4.7188,
+      -9.3076,
+      -3.86
+    ],
+    "max": [
+      5.9888,
+      -9.0326,
+      -3.401
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C1_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:14+USER_LIBRARY-0201_0603M__CAP_1:1",
+    "body": "Body1",
+    "min": [
+      7.7653,
+      -14.138,
+      -3.7073
+    ],
+    "max": [
+      8.0701,
+      -13.6503,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C1_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:14+USER_LIBRARY-0201_0603M__CAP_2:1",
+    "body": "Body1",
+    "min": [
+      7.7653,
+      -14.199,
+      -3.7048
+    ],
+    "max": [
+      8.0701,
+      -14.138,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C1_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:14+USER_LIBRARY-0201_0603M__CAP_3:1",
+    "body": "Body1",
+    "min": [
+      7.7653,
+      -13.6503,
+      -3.7048
+    ],
+    "max": [
+      8.0701,
+      -13.5894,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C2_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:15+USER_LIBRARY-0201_0603M__CAP_1:1",
+    "body": "Body1",
+    "min": [
+      7.7658,
+      -15.5168,
+      -3.7073
+    ],
+    "max": [
+      8.0706,
+      -15.0291,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C2_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:15+USER_LIBRARY-0201_0603M__CAP_2:1",
+    "body": "Body1",
+    "min": [
+      7.7658,
+      -15.5778,
+      -3.7048
+    ],
+    "max": [
+      8.0706,
+      -15.5168,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C2_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:15+USER_LIBRARY-0201_0603M__CAP_3:1",
+    "body": "Body1",
+    "min": [
+      7.7658,
+      -15.0291,
+      -3.7048
+    ],
+    "max": [
+      8.0706,
+      -14.9682,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C13_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:16+USER_LIBRARY-0201_0603M__CAP_1:1",
+    "body": "Body1",
+    "min": [
+      9.0128,
+      -1.3216,
+      -3.7073
+    ],
+    "max": [
+      9.3176,
+      -0.8339,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C13_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:16+USER_LIBRARY-0201_0603M__CAP_2:1",
+    "body": "Body1",
+    "min": [
+      9.0128,
+      -0.8339,
+      -3.7048
+    ],
+    "max": [
+      9.3176,
+      -0.773,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C13_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:16+USER_LIBRARY-0201_0603M__CAP_3:1",
+    "body": "Body1",
+    "min": [
+      9.0128,
+      -1.3826,
+      -3.7048
+    ],
+    "max": [
+      9.3176,
+      -1.3216,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C10_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:17+USER_LIBRARY-0201_0603M__CAP_1:1",
+    "body": "Body1",
+    "min": [
+      4.9742,
+      -5.4722,
+      -3.7073
+    ],
+    "max": [
+      5.279,
+      -4.9845,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C10_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:17+USER_LIBRARY-0201_0603M__CAP_2:1",
+    "body": "Body1",
+    "min": [
+      4.9742,
+      -4.9845,
+      -3.7048
+    ],
+    "max": [
+      5.279,
+      -4.9235,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C10_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:17+USER_LIBRARY-0201_0603M__CAP_3:1",
+    "body": "Body1",
+    "min": [
+      4.9742,
+      -5.5331,
+      -3.7048
+    ],
+    "max": [
+      5.279,
+      -5.4722,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+U6_ASM:1+USER_LIBRARY-VSOP8_ASM:1+POCKET:1",
+    "body": "Body1",
+    "min": [
+      3.1149,
+      3.0859,
+      -4.4
+    ],
+    "max": [
+      8.4949,
+      8.4659,
+      -3.55
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+U6_ASM:1+USER_LIBRARY-VSOP8_ASM:1+LEGS_SEITE_2:1",
+    "body": "Body1",
+    "min": [
+      3.6599,
+      5.7759,
+      -4.025
+    ],
+    "max": [
+      7.9499,
+      9.8259,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+U6_ASM:1+USER_LIBRARY-VSOP8_ASM:1+LEGS_SEITE_1:1",
+    "body": "Body1",
+    "min": [
+      3.6599,
+      1.7259,
+      -4.025
+    ],
+    "max": [
+      7.9499,
+      5.7759,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C9_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:18+USER_LIBRARY-0201_0603M__CAP_1:1",
+    "body": "Body1",
+    "min": [
+      3.3842,
+      -5.4331,
+      -3.7073
+    ],
+    "max": [
+      3.689,
+      -4.9454,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C9_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:18+USER_LIBRARY-0201_0603M__CAP_2:1",
+    "body": "Body1",
+    "min": [
+      3.3842,
+      -4.9454,
+      -3.7048
+    ],
+    "max": [
+      3.689,
+      -4.8845,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C9_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:18+USER_LIBRARY-0201_0603M__CAP_3:1",
+    "body": "Body1",
+    "min": [
+      3.3842,
+      -5.4941,
+      -3.7048
+    ],
+    "max": [
+      3.689,
+      -5.4331,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C__ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:19+USER_LIBRARY-0201_0603M__CAP_1:1",
+    "body": "Body1",
+    "min": [
+      2.7137,
+      -5.4238,
+      -3.7073
+    ],
+    "max": [
+      3.0185,
+      -4.9362,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C__ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:19+USER_LIBRARY-0201_0603M__CAP_2:1",
+    "body": "Body1",
+    "min": [
+      2.7137,
+      -5.4848,
+      -3.7048
+    ],
+    "max": [
+      3.0185,
+      -5.4238,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C__ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:19+USER_LIBRARY-0201_0603M__CAP_3:1",
+    "body": "Body1",
+    "min": [
+      2.7137,
+      -4.9362,
+      -3.7048
+    ],
+    "max": [
+      3.0185,
+      -4.8752,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+IND2_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:16+USER_LIBRARY-RES_0603-0201_1:1",
+    "body": "Body1",
+    "min": [
+      -4.6725,
+      11.0186,
+      -3.7
+    ],
+    "max": [
+      -4.3425,
+      11.6486,
+      -3.425
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+IND2_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:16+USER_LIBRARY-RES_0603-0201_2:1",
+    "body": "Body1",
+    "min": [
+      -4.6725,
+      11.5736,
+      -3.725
+    ],
+    "max": [
+      -4.3425,
+      11.6736,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+IND2_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:16+USER_LIBRARY-RES_0603-0201_3:1",
+    "body": "Body1",
+    "min": [
+      -4.6725,
+      10.9936,
+      -3.725
+    ],
+    "max": [
+      -4.3425,
+      11.0936,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+IND2_ASM:1+USER_LIBRARY-RES_0603-0201_ASM:16+USER_LIBRARY-RES_0603-0201_4:1",
+    "body": "Body1",
+    "min": [
+      -4.6725,
+      11.0936,
+      -3.735
+    ],
+    "max": [
+      -4.3425,
+      11.5736,
+      -3.7
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+U8_ASM:1+1160803696_ASM:1+EXTRUDED-271125:1",
+    "body": "Body1",
+    "min": [
+      -4.8844,
+      -3.1623,
+      -4.3
+    ],
+    "max": [
+      -1.7344,
+      -0.0623,
+      -3.42
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+U9_ASM:1+1377509744_ASM:1+EXTRUDED-271544:1",
+    "body": "Body1",
+    "min": [
+      -4.3069,
+      -5.83,
+      -3.95
+    ],
+    "max": [
+      -2.6069,
+      -4.53,
+      -3.445
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+U9_ASM:1+1377509616_ASM:1+EXTRUDED-271916:1",
+    "body": "Body1",
+    "min": [
+      -4.0717,
+      -4.68,
+      -3.56
+    ],
+    "max": [
+      -3.8423,
+      -4.2757,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+U9_ASM:1+1377509616_ASM:2+EXTRUDED-271916:1",
+    "body": "Body1",
+    "min": [
+      -3.5717,
+      -4.68,
+      -3.56
+    ],
+    "max": [
+      -3.3423,
+      -4.2757,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+U9_ASM:1+1377509616_ASM:3+EXTRUDED-271916:1",
+    "body": "Body1",
+    "min": [
+      -3.0717,
+      -4.68,
+      -3.56
+    ],
+    "max": [
+      -2.8423,
+      -4.2757,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+U9_ASM:1+1377509616_ASM:4+EXTRUDED-271916:1",
+    "body": "Body1",
+    "min": [
+      -3.0717,
+      -6.0821,
+      -3.56
+    ],
+    "max": [
+      -2.8423,
+      -5.6778,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+U9_ASM:1+1377509616_ASM:5+EXTRUDED-271916:1",
+    "body": "Body1",
+    "min": [
+      -3.5717,
+      -6.0821,
+      -3.56
+    ],
+    "max": [
+      -3.3423,
+      -5.6778,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+U9_ASM:1+1377509616_ASM:6+EXTRUDED-271916:1",
+    "body": "Body1",
+    "min": [
+      -4.0717,
+      -6.0821,
+      -3.56
+    ],
+    "max": [
+      -3.8423,
+      -5.6778,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C38_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:20+USER_LIBRARY-0201_0603M__CAP_1:1",
+    "body": "Body1",
+    "min": [
+      8.195,
+      -1.3215,
+      -3.7073
+    ],
+    "max": [
+      8.4998,
+      -0.8338,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C38_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:20+USER_LIBRARY-0201_0603M__CAP_2:1",
+    "body": "Body1",
+    "min": [
+      8.195,
+      -1.3825,
+      -3.7048
+    ],
+    "max": [
+      8.4998,
+      -1.3215,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C38_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:20+USER_LIBRARY-0201_0603M__CAP_3:1",
+    "body": "Body1",
+    "min": [
+      8.195,
+      -0.8338,
+      -3.7048
+    ],
+    "max": [
+      8.4998,
+      -0.7729,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C42_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:21+USER_LIBRARY-0201_0603M__CAP_1:1",
+    "body": "Body1",
+    "min": [
+      -10.9108,
+      13.3908,
+      -3.7073
+    ],
+    "max": [
+      -10.4232,
+      13.6956,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C42_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:21+USER_LIBRARY-0201_0603M__CAP_2:1",
+    "body": "Body1",
+    "min": [
+      -10.9718,
+      13.3908,
+      -3.7048
+    ],
+    "max": [
+      -10.9108,
+      13.6956,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C42_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:21+USER_LIBRARY-0201_0603M__CAP_3:1",
+    "body": "Body1",
+    "min": [
+      -10.4232,
+      13.3908,
+      -3.7048
+    ],
+    "max": [
+      -10.3622,
+      13.6956,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C29_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:22+USER_LIBRARY-0201_0603M__CAP_1:1",
+    "body": "Body1",
+    "min": [
+      -8.2337,
+      14.3611,
+      -3.7073
+    ],
+    "max": [
+      -7.746,
+      14.6659,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C29_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:22+USER_LIBRARY-0201_0603M__CAP_2:1",
+    "body": "Body1",
+    "min": [
+      -8.2946,
+      14.3611,
+      -3.7048
+    ],
+    "max": [
+      -8.2337,
+      14.6659,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C29_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:22+USER_LIBRARY-0201_0603M__CAP_3:1",
+    "body": "Body1",
+    "min": [
+      -7.746,
+      14.3611,
+      -3.7048
+    ],
+    "max": [
+      -7.685,
+      14.6659,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+L2_ASM:1+L0201_ASM:1+L0201_1:1",
+    "body": "Body1",
+    "min": [
+      -6.3508,
+      12.5114,
+      -3.68
+    ],
+    "max": [
+      -6.0508,
+      12.6114,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+L2_ASM:1+L0201_ASM:1+L0201_2:1",
+    "body": "Body1",
+    "min": [
+      -6.3508,
+      12.0114,
+      -3.68
+    ],
+    "max": [
+      -6.0508,
+      12.1114,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+L2_ASM:1+L0201_ASM:1+L0201_3:1",
+    "body": "Body1",
+    "min": [
+      -6.3008,
+      12.1114,
+      -3.63
+    ],
+    "max": [
+      -6.1008,
+      12.5114,
+      -3.45
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+L3_ASM:1+L0201_ASM:2+L0201_1:1",
+    "body": "Body1",
+    "min": [
+      -6.2858,
+      14.3636,
+      -3.68
+    ],
+    "max": [
+      -6.1858,
+      14.6636,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+L3_ASM:1+L0201_ASM:2+L0201_2:1",
+    "body": "Body1",
+    "min": [
+      -6.7858,
+      14.3636,
+      -3.68
+    ],
+    "max": [
+      -6.6858,
+      14.6636,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+L3_ASM:1+L0201_ASM:2+L0201_3:1",
+    "body": "Body1",
+    "min": [
+      -6.6858,
+      14.4136,
+      -3.63
+    ],
+    "max": [
+      -6.2858,
+      14.6136,
+      -3.45
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C4_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:23+USER_LIBRARY-0201_0603M__CAP_1:1",
+    "body": "Body1",
+    "min": [
+      1.5706,
+      5.1844,
+      -3.7073
+    ],
+    "max": [
+      2.0583,
+      5.4892,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C4_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:23+USER_LIBRARY-0201_0603M__CAP_2:1",
+    "body": "Body1",
+    "min": [
+      2.0583,
+      5.1844,
+      -3.7048
+    ],
+    "max": [
+      2.1192,
+      5.4892,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C4_ASM:1+USER_LIBRARY-0201_0603M__CAP_ASM:23+USER_LIBRARY-0201_0603M__CAP_3:1",
+    "body": "Body1",
+    "min": [
+      1.5096,
+      5.1844,
+      -3.7048
+    ],
+    "max": [
+      1.5706,
+      5.4892,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C5_ASM:1+C_0402_ASM:3+C_0402-4045_AF0_ASM_ASM:1+C_0402-672_AF0_ASM_ASM:1+_1_10001:1",
+    "body": "Body1",
+    "min": [
+      1.5144,
+      4.1087,
+      -3.9254
+    ],
+    "max": [
+      2.1144,
+      4.6087,
+      -3.4254
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C5_ASM:1+C_0402_ASM:3+C_0402-4045_AF0_ASM_ASM:1+C_0402-672_AF0_ASM_ASM:1+3_1_A:1",
+    "body": "Body1",
+    "min": [
+      1.3144,
+      4.0987,
+      -3.9354
+    ],
+    "max": [
+      1.5144,
+      4.6187,
+      -3.4154
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+PCB_ASM:1+C5_ASM:1+C_0402_ASM:3+C_0402-4045_AF0_ASM_ASM:1+C_0402-672_AF0_ASM_ASM:1+2_100:1",
+    "body": "Body1",
+    "min": [
+      2.1144,
+      4.0987,
+      -3.9354
+    ],
+    "max": [
+      2.3144,
+      4.6187,
+      -3.4154
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+HP1_25MMX2PIN-SMT:1",
+    "body": "Body1",
+    "min": [
+      -10.825,
+      -12.3201,
+      -6.7
+    ],
+    "max": [
+      -3.175,
+      -7.1201,
+      -3.3
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+BUTTON-3X4X2_5MM-SMT:1",
+    "body": "Body1",
+    "min": [
+      9.0982,
+      7.3277,
+      -5.9
+    ],
+    "max": [
+      12.4482,
+      12.5277,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+ESP32-S3-CORE:1",
+    "body": "Body1",
+    "min": [
+      -7.0017,
+      3.0921,
+      -4.25
+    ],
+    "max": [
+      -0.0017,
+      10.0921,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+C3-001:1",
+    "body": "Body1",
+    "min": [
+      -2.9,
+      14.7921,
+      -4.4
+    ],
+    "max": [
+      2.9,
+      16.7921,
+      -3.4
+    ]
+  },
+  {
+    "component": "ESP32-S3-LCD-1_28-CASE_ASM:1+ESP32-S3-LCD-1_28-PCBA_ASM:1+BUTTON-3X4X2_5MM-SMT:2",
+    "body": "Body1",
+    "min": [
+      -12.4518,
+      7.3277,
+      -5.9
+    ],
+    "max": [
+      -9.1018,
+      12.5277,
+      -3.4
+    ]
+  }
+]

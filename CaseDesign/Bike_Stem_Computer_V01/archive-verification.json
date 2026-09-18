@@ -1,0 +1,17 @@
+{
+  "reopened_local_archive": true,
+  "parameters": 54,
+  "timeline_items": 190,
+  "components": [
+    "01 Bottom shell - PETG",
+    "02 Top shell and bezel - PETG",
+    "03 Removable electronics carrier - PETG",
+    "04 Replaceable quarter turn cartridge - FIT TEST",
+    "05 Cover lens - polycarbonate REFERENCE",
+    "06 Battery - 500 mAh REFERENCE",
+    "07 Switch blanking cap - TPU fit prototype",
+    "09 LCD rim pads - soft foam REFERENCE",
+    "08 Waveshare official STEP - REFERENCE"
+  ],
+  "issues": []
+}

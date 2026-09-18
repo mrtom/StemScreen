@@ -1,0 +1,7 @@
+Starting native Fusion build
+Bottom completed
+Top completed
+Carrier completed
+Mount completed
+Validating and exporting
+SUCCESS - local F3D, STEP and print meshes exported
