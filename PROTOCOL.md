@@ -81,6 +81,12 @@ buffer uses 19,584 bytes. The prototype uses no authentication/bonding and selec
 the first matching service. A write acknowledgement proves transport completion,
 not successful packet decoding; receiver output is the acceptance evidence.
 
+## Local battery display
+
+Battery sensing and the outer ring are receiver-local. No battery percentage or
+charging flag is transmitted over BLE; the v3 packet and Garmin sender are unchanged.
+See README.md for voltage calibration and the unavailable charging-status signal.
+
 ## Host checks
 
 ```sh

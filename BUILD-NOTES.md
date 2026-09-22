@@ -1,5 +1,79 @@
 # Validation
 
+## Battery icon fill levels — 22 September 2026
+
+The top battery icon now follows the ring's stable quarter level: empty for low,
+quarter/half/three-quarter interior fill for 25/50/75%, and a solid body for 100%.
+Invalid readings remain an empty grey outline. Its position, two-pixel padding
+and colour remain unchanged. The backing clears previous fills on each redraw,
+so falling levels leave no old pixels. Sensing and BLE behaviour are unchanged.
+Receiver compilation passed with ESP32 core 3.3.11: 651,471 bytes program
+storage, 30,028 bytes globals. `git diff --check` passed. No new host tests were
+needed for this drawing-only change. No upload or Garmin/simulator run performed.
+Physical appearance still needs checking on the receiver after upload.
+
+## Battery icon centred on ring — 22 September 2026
+
+Moved the battery outline onto the outer stroke at 12 o'clock, with a black
+backing providing two pixels of clear padding on every side. Both four-pixel
+rings move inward three pixels (battery radii 112–115, status 106–109), preserving
+the two-pixel gap while fitting the icon and padding within the round display.
+The eight-pixel-high icon and battery stroke share vertical centre y=6.5.
+Backing is drawn after both rings so they cannot overwrite its padding.
+Receiver compilation passed with ESP32 core 3.3.11: 651,419 bytes program
+storage, 30,028 bytes globals. `git diff --check` passed. No upload performed.
+Hardware appearance remains unverified; check the top icon and both rotating
+pages after uploading the receiver. Garmin, battery sensing and timing unchanged.
+
+## Thicker rings and battery icon — 22 September 2026
+
+Both rings now use four-pixel strokes, retaining a two-pixel gap: battery radii
+115–118 and connection/status radii 109–112. A small battery outline is centred
+at 12 o'clock inside the rings on both pages, using the steady battery colour.
+No sensing, charging detection, BLE or timing behaviour changed.
+
+Receiver compilation passed with ESP32 core 3.3.11 and the existing board
+settings: 651,403 bytes program storage and 30,028 bytes globals.
+`git diff --check` passed. No upload was performed. No new host tests were
+needed for this drawing-only change; Garmin and simulator checks were not run.
+
+Physical appearance remains unverified; upload the receiver and check ring
+separation, icon legibility and both rotating pages.
+
+## Battery sensing and outer ring — 22 September 2026
+
+Tom reports a 500 mAh 3.7 V LiPo is now connected. Added GPIO1 calibrated-millivolt
+sampling (16 spaced samples per batch, five-second batch interval), configurable
+×3 divider, nonlinear LiPo interpolation, range validation and quarter-level
+hysteresis. The outer two-pixel ring starts clockwise from 12 o'clock: low below
+25% is a 15-degree red arc; the other levels are 25/50/75/100% quarters using the
+steady link/activity tint. It appears on both pages without changing ride timing.
+
+Waveshare's current non-touch documentation specifies ×3, but its linked schematic
+labels R4/R7 as 100k/100k (×2). Meter calibration on this board is required. The
+schematic provides no documented charger-status/USB-present connection to ESP32;
+power remains Unknown. Charging animation rules are implemented and host-tested
+but cannot activate automatically on the stock board. No voltage-trend or USB
+serial heuristic is used. See README for sources, calibration and logging.
+
+Validation:
+
+- Battery, protocol/UI/receiver and continuous-clock host suites all passed with
+  C++11 and `-Wall -Wextra -Werror -pedantic`. Battery checks cover curve points,
+  interpolation, clamping/monotonicity, divider conversion, invalid readings,
+  quarter hysteresis, charging animation/colours, averaging and scheduler rollover.
+- Receiver compile passed with installed ESP32 core 3.3.11 and documented board
+  settings: 651,435 bytes program storage, 30,028 bytes globals. Build output:
+  `/tmp/stem-battery-build`.
+- Garmin source and protocol unchanged; no Garmin build or simulator run needed
+  or performed. No upload, physical ADC calibration, display inspection, charging
+  detection or runtime test was performed. `git diff --check` passed.
+
+Next: upload the receiver with existing Arduino settings. Capture BAT serial lines
+at 115200 and compare ADC voltage to a meter at the cell connector to settle the
+divider. Check both pages, pause flashing and link loss, then unplug USB for a
+battery-only runtime test. USB-connected logs are not a discharge runtime test.
+
 ## Continuous ride clock and protocol v3 — 22 September 2026
 
 Tom reports the first interpolation improved gaps but still produced uneven

@@ -66,6 +66,25 @@ Known build baseline:
 
 BLE uses the library bundled with Espressif's core. Do not add a competing Arduino BLE library or change frameworks without a concrete need. Keep working dependency versions unless an upgrade addresses the task.
 
+## Battery measurement and UI (22 September 2026)
+
+`StemScreen/Battery.h` averages 16 GPIO1 millivolt readings and interpolates an
+approximate LiPo curve. Both rings are four pixels thick (battery radii 112–115, status 106–109),
+with a two-pixel gap and a small battery icon centred on the outer ring at
+12 o'clock, surrounded by two pixels of black padding. The icon is empty at low,
+quarter/half/three-quarter filled at 25/50/75%, and solid at 100%; it shares the
+ring's stable quarter level. Invalid readings show an empty grey icon. The battery ring
+uses low (<25%, red 15°),
+then 25/50/75/100% quarters; other levels use the steady connection tint.
+The requested ×3 divider follows current Waveshare docs, but their linked
+non-touch schematic labels a ×2 divider: verify against a meter before relying
+on charge estimates. Implausible readings show a grey ring. Serial BAT lines
+include ADC voltage, converted voltage, approximate percentage and validity.
+There is no documented ESP32 charger-status/USB-present GPIO, so power remains
+Unknown and charging animation is disabled. Do not infer charging from ADC or
+serial connectivity. Animation logic is ready for a verified power-status input.
+Hardware calibration, ring appearance and 500 mAh runtime remain unverified.
+
 ## Architecture and implemented behaviour
 
 Current ride UI update, 22 September 2026: source uses ride packets (version 3,

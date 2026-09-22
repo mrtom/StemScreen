@@ -9,6 +9,8 @@
 #include <BLEUtils.h>
 #include <esp_arduino_version.h>
 #include "RideUi.h"
+#include "Battery.h"
+#include <math.h>
 
 #if !defined(CONFIG_IDF_TARGET_ESP32S3)
 #error "Select ESP32S3 Dev Module"
@@ -18,6 +20,55 @@ Adafruit_GC9A01A display(&displaySPI, 8, 9, 12);
 // A small strip buffer keeps redraws smooth without a large BLE RAM cost.
 GFXcanvas16 strip(204, 48);
 PageRotation rotation;
+constexpr int STEM_BATTERY_PIN = 1;
+constexpr int BATTERY_RING_OUTER_RADIUS = 115;
+constexpr int RING_THICKNESS = 4;
+constexpr int RING_GAP = 2;
+constexpr int STATUS_RING_OUTER_RADIUS = BATTERY_RING_OUTER_RADIUS - RING_THICKNESS - RING_GAP;
+BatteryState battery;
+BatterySampler batterySampler;
+
+void drawBatteryRing(uint16_t tint, uint32_t now) {
+  const BatteryRing ring = batteryRing(battery, tint, now);
+  // Both rings are four pixels thick, separated by two clear pixels.
+  // Half-degree steps overlap at this radius, making a continuous arc.
+  display.startWrite();
+  for (unsigned step = 0; step < 720; ++step) {
+    const unsigned degree = step / 2;
+    const bool gap = degree % 90 < 2;
+    const bool lit = degree < ring.solidDegrees ||
+      (ring.flashOn && degree < ring.flashEndDegrees);
+    const uint16_t color = gap ? GC9A01A_BLACK :
+      !battery.valid ? GC9A01A_DARKGREY : lit ? ring.color : GC9A01A_BLACK;
+    const float angle = step * (3.14159265f / 360.0f);
+    for (int radius = BATTERY_RING_OUTER_RADIUS - RING_THICKNESS + 1;
+         radius <= BATTERY_RING_OUTER_RADIUS; ++radius) {
+      display.writePixel(120 + lroundf(radius * sinf(angle)),
+        120 - lroundf(radius * cosf(angle)), color);
+    }
+  }
+  display.endWrite();
+  // Centre the eight-pixel icon on the battery stroke at 12 o'clock.
+  // Draw the black backing after both rings, preserving RING_GAP padding.
+  constexpr int iconX = 111, iconWidth = 18, iconHeight = 8;
+  constexpr int iconY = 120 - BATTERY_RING_OUTER_RADIUS +
+    (RING_THICKNESS - iconHeight) / 2;
+  display.fillRect(iconX - RING_GAP, iconY - RING_GAP,
+    iconWidth + 2 * RING_GAP, iconHeight + 2 * RING_GAP, GC9A01A_BLACK);
+  // Steady colour does not imply charging detection.
+  if (battery.valid && battery.quarters == 4) {
+    display.fillRect(iconX, iconY, 16, iconHeight, ring.color);
+  } else {
+    display.drawRect(iconX, iconY, 16, iconHeight, ring.color);
+    // Twelve interior pixels give exact quarter fills, with a black inset.
+    // The shared quarter level keeps the icon and ring hysteresis aligned.
+    if (battery.valid && battery.quarters > 0) {
+      display.fillRect(iconX + 2, iconY + 2, battery.quarters * 3,
+        iconHeight - 4, ring.color);
+    }
+  }
+  display.fillRect(iconX + 16, iconY + 2, 2, 4, ring.color);
+}
 portMUX_TYPE stateLock = portMUX_INITIALIZER_UNLOCKED;
 ReceiverState sharedState;
 
@@ -74,7 +125,7 @@ void textLine(const char* text, int y, int size, uint16_t color, int height) {
   strip.print(text);
   display.drawRGBBitmap(18, y, strip.getBuffer(), 204, height);
 }
-void drawScreen(const RideScreen& screen) {
+void drawScreen(const RideScreen& screen, uint32_t now) {
   textLine(screen.title, 44, 2, GC9A01A_WHITE, 24);
   textLine(screen.value, 92, screen.valueSize, screen.valueColor, 48);
   textLine(screen.detail, 151, strlen(screen.detail) <= 16 ? 2 : 1, screen.valueColor, 24);
@@ -83,11 +134,17 @@ void drawScreen(const RideScreen& screen) {
   display.fillCircle(111, 215, 3, screen.ridePage ? GC9A01A_DARKGREY : screen.tint);
   display.fillCircle(129, 215, 3, screen.ridePage ? screen.tint : GC9A01A_DARKGREY);
   // Redraw after the rectangular strips so the ring remains continuous.
-  display.drawCircle(120, 120, 114, screen.ring);
-  display.drawCircle(120, 120, 113, screen.ring);
+  for (int radius = STATUS_RING_OUTER_RADIUS - RING_THICKNESS + 1;
+       radius <= STATUS_RING_OUTER_RADIUS; ++radius) {
+    display.drawCircle(120, 120, radius, screen.ring);
+  }
+  drawBatteryRing(screen.tint, now);
 }
 void setup() {
   Serial.begin(115200);
+  pinMode(STEM_BATTERY_PIN, INPUT);
+  // Covers both the documented /3 input and /2 on older schematic revisions.
+  analogSetPinAttenuation(STEM_BATTERY_PIN, ADC_11db);
   pinMode(40, OUTPUT); digitalWrite(40, LOW);
   displaySPI.begin(10, -1, 11, 9);
   display.begin(20000000);
@@ -100,7 +157,7 @@ void setup() {
     while (true) delay(1000);
   }
   rotation.startedAt = millis();
-  drawScreen(makeScreen(sharedState, millis(), false));
+  drawScreen(makeScreen(sharedState, millis(), false), millis());
   BLEDevice::init("BikeStem");
   Serial.printf("StemScreen ride v2: core=%s address=%s\n",
     ESP_ARDUINO_VERSION_STR, BLEDevice::getAddress().toString().c_str());
@@ -135,6 +192,13 @@ void loop() {
   sharedState.advertiseAgain = false;
   portEXIT_CRITICAL(&stateLock);
   const uint32_t now = millis();
+  if (batterySampler.due(now) &&
+      batterySampler.add(now, analogReadMilliVolts(STEM_BATTERY_PIN), battery)) {
+    Serial.printf("BAT t=%lu adc_mV=%lu battery_mV=%lu approx_pct=%u quarters=%u valid=%u power=unknown\n",
+      (unsigned long)now, (unsigned long)battery.adcMv,
+      (unsigned long)battery.millivolts, unsigned(battery.percent),
+      unsigned(battery.quarters), unsigned(battery.valid));
+  }
   // All logging remains in loop(), outside the BLE callback critical sections.
   if (uint32_t(now-lastHealth) >= 5000 || state.connects != loggedConnects ||
       state.disconnects != loggedDisconnects || state.rejected != loggedRejected) {
@@ -170,7 +234,7 @@ void loop() {
     lastDraw = now;
     lastRing = screen.ring;
     lastDrawDuration = duration;
-    drawScreen(screen);
+    drawScreen(screen, now);
   }
   delay(5);
 }

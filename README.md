@@ -1,5 +1,73 @@
 # Bike Stem Computer — first Bluetooth test
 
+## Battery ring (22 September 2026)
+
+The receiver now samples GPIO1 (`BAT_ADC`) with `analogReadMilliVolts()`: 16
+readings spaced at least 10 ms apart, followed by a five-second interval. Sampling,
+drawing and logging run outside BLE callbacks. `StemScreen/Battery.h` contains
+the divider factor and the approximate LiPo interpolation curve (3.45 V empty,
+4.20 V full). This is a voltage estimate, not a fuel gauge or runtime prediction.
+Load, temperature and USB charging affect the estimate; 500 mAh does not change
+the voltage curve.
+
+Both rings are four pixels thick, separated by a two-pixel gap. A small battery
+outline is centred on the battery ring at 12 o'clock on both pages, with two
+pixels of black padding around it, and uses the battery ring colour. The icon is
+empty at low, quarter/half/three-quarter filled at 25/50/75%, and solid at 100%.
+Its fill uses the same stable level as the ring; invalid readings show an empty
+grey icon. The outer battery ring appears outside the connection ring.
+It fills clockwise from 12 o'clock, with small gaps at the quarter boundaries:
+
+| Estimated charge | Outer ring |
+| --- | --- |
+| Below 25% | Short 15-degree red arc (low) |
+| 25–49% | One quarter |
+| 50–74% | Two quarters |
+| 75–99% | Three quarters |
+| 100% | Four quarters |
+
+Non-low segments use the steady connection/activity tint, independent of paused
+activity flashing. A two-percentage-point falling margin prevents rapid changes
+at quarter boundaries. Invalid voltage or startup before sampling gives a grey
+outline instead of a misleading full battery.
+
+**Charging animation is implemented but not enabled on this board.** The
+[non-touch schematic](https://files.waveshare.com/wiki/ESP32-S3-LCD-1.28/Esp32-s3-lcd-.128-sch.pdf)
+does not show a charger-status or USB-present GPIO connection to the ESP32.
+Firmware therefore reports `power=unknown`; high/rising voltage and an open
+Serial Monitor are not charging detectors. A future reliable power-status input
+can select `BatteryPower::Charging`: solid charge segments plus the next quarter
+flashing every 500 ms, red below 25%, blue from 25% to below 100%, and the whole
+ring flashing green at 100%. No hardware modification is part of this change.
+
+**Verify the divider before relying on the ring.** Waveshare's
+[current documentation](https://docs.waveshare.com/ESP32-S3-LCD-1.28) specifies
+200 kΩ/100 kΩ (×3), whereas its linked schematic labels R4/R7 as 100 kΩ/100 kΩ
+(×2). The implementation follows the requested ×3, exposed as `BATTERY_DIVIDER`.
+ADC attenuation is 11 dB to accommodate either input range. Converted readings
+outside 2.5–4.35 V are treated as invalid, not clamped to a full battery.
+
+Upload `StemScreen/StemScreen.ino` using the existing ESP32S3/16MB/QSPI PSRAM
+settings. This change needs no Garmin update if protocol v3 is already installed.
+Open Serial Monitor at **115200 baud** and record `BAT t=... adc_mV=...
+battery_mV=... approx_pct=... quarters=... valid=... power=unknown` lines.
+Compare the connector voltage measured with a meter against `adc_mV` before
+adjusting `BATTERY_DIVIDER`; record whether USB was connected. Check the ring on
+both pages and during Garmin pause/stale/disconnected states. For a real discharge
+runtime test, unplug USB-C (which supplies power/charges the cell), note start/end
+times and ring transitions. USB serial logging itself changes the power conditions;
+a battery-only serial capture needs an independently powered 3.3 V UART receiver
+connected to board TX/GND only, with no power feed to the board. Do not infer
+battery-only runtime from a USB-connected log. Physical calibration and runtime
+validation are still pending.
+
+Host battery checks:
+
+```sh
+c++ -std=c++11 -Wall -Wextra -Werror -pedantic tests/battery_test.cpp -o /tmp/stem-battery-test
+/tmp/stem-battery-test
+```
+
 ## Current display colours (22 September 2026)
 
 The current clock/ride-time UI uses blue for fresh Garmin data with no activity
