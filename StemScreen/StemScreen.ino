@@ -78,10 +78,10 @@ void drawScreen(const RideScreen& screen) {
   textLine(screen.title, 44, 2, GC9A01A_WHITE, 24);
   textLine(screen.value, 92, screen.valueSize, screen.valueColor, 48);
   textLine(screen.detail, 151, strlen(screen.detail) <= 16 ? 2 : 1, screen.valueColor, 24);
-  textLine(screen.connection, 180, 1, screen.ring, 16);
+  textLine(screen.connection, 180, 1, screen.tint, 16);
   textLine(screen.footer, 199, 1, GC9A01A_WHITE, 8);
-  display.fillCircle(111, 215, 3, screen.ridePage ? GC9A01A_DARKGREY : screen.ring);
-  display.fillCircle(129, 215, 3, screen.ridePage ? screen.ring : GC9A01A_DARKGREY);
+  display.fillCircle(111, 215, 3, screen.ridePage ? GC9A01A_DARKGREY : screen.tint);
+  display.fillCircle(129, 215, 3, screen.ridePage ? screen.tint : GC9A01A_DARKGREY);
   // Redraw after the rectangular strips so the ring remains continuous.
   display.drawCircle(120, 120, 114, screen.ring);
   display.drawCircle(120, 120, 113, screen.ring);
@@ -127,6 +127,7 @@ void loop() {
   static uint32_t lastHealth = 0, loggedConnects = 0, loggedDisconnects = 0;
   static uint32_t loggedRejected = 0;
   static bool restartPending = false;
+  static uint16_t lastRing = 0xf800;
   ReceiverState state;
   portENTER_CRITICAL(&stateLock);
   state = sharedState;
@@ -160,10 +161,12 @@ void loop() {
       (unsigned long)state.packets, (unsigned long)state.rejected);
     loggedPackets = state.packets;
   }
-  if (uint32_t(now-lastDraw) >= 250) {
+  rotation.update(now);
+  const auto screen = makeScreen(state, now, rotation.ridePage);
+  if (uint32_t(now-lastDraw) >= 250 || screen.ring != lastRing) {
     lastDraw = now;
-    rotation.update(now);
-    drawScreen(makeScreen(state, now, rotation.ridePage));
+    lastRing = screen.ring;
+    drawScreen(screen);
   }
   delay(5);
 }

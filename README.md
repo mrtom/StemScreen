@@ -1,5 +1,18 @@
 # Bike Stem Computer — first Bluetooth test
 
+## Current display colours (22 September 2026)
+
+The current clock/ride-time UI uses blue for fresh Garmin data with no activity
+(or unknown activity state), and green for a confirmed activity. Running is steady
+green; manual pause and Auto Pause flash the circumference ring green for 0.5 seconds,
+then black for 0.5 seconds. The connection text and selected page dot share the
+status colour but do not flash. Cyan means connected and awaiting data, orange
+means no valid packet for five seconds, and red means disconnected. These link
+warnings override activity colours and flashing. Time and detail text stay white
+with fresh data and grey otherwise.
+
+The counter setup notes below describe the earlier diagnostic version.
+
 This sends a counter from your **Garmin Edge 530** to your **Waveshare ESP32-S3-LCD-1.28 non-touch** board, roughly once a second. The board only displays values it actually receives.
 
 The aim is to prove that the connection works and keeps updating when you switch the Garmin to its map page. The clock, ride timer and rotating pages will come back in the next version. This counter is **not ride time**: it increments whenever Garmin calls the field's compute function, including while the activity timer is paused.

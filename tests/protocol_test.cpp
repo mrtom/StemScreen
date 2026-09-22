@@ -75,7 +75,7 @@ int main() {
     auto screen=makeScreen(receiver,8000+status,true);
     assert(strcmp(screen.detail,labels[status])==0);
     assert(strcmp(screen.value,"01:01:01")==0);
-    assert(screen.ring==linkColor(LinkStatus::Live));
+    assert(screen.ring==(status == 0 ? 0x001f : 0x07e0));
   }
   auto clock=makeScreen(receiver,8003,false);
   assert(strcmp(clock.value,"14:35")==0 && strcmp(clock.detail,"17 Sep 2026")==0);
@@ -92,10 +92,36 @@ int main() {
   receiver.receive(absent,20,21000);
   auto unknown=makeScreen(receiver,21000,true);
   assert(strcmp(unknown.value,"--:--:--")==0 && strcmp(unknown.detail,"STATUS UNKNOWN")==0);
+  assert(unknown.tint==0x001f && unknown.ring==0x001f);
   assert(strcmp(makeScreen(receiver,21000,false).value,"--:--")==0);
   bytes[14]=bytes[15]=bytes[16]=bytes[17]=0; bytes[5]=0;
   receiver.receive(bytes,20,22000);
   assert(strcmp(makeScreen(receiver,22000,true).value,"00:00:00")==0);
+  // Both pause types blink only the ring, on both pages, at half-second boundaries.
+  for (auto status : {RideStatus::Stopped, RideStatus::AutoPaused}) {
+    bytes[5]=static_cast<uint8_t>(status);
+    receiver.receive(bytes,20,24000);
+    for (bool ridePage : {false,true}) {
+      for (uint32_t now : {24000u,24499u,24500u,24999u,25000u}) {
+        auto screen=makeScreen(receiver,now,ridePage);
+        assert(screen.ring==(now>=24500 && now<25000 ? 0x0000 : 0x07e0));
+        assert(screen.tint==0x07e0 && screen.valueColor==0xffff);
+      }
+    }
+    receiver.receive(bytes,20,24700); // New data must not restart the flash.
+    assert(makeScreen(receiver,24700,true).ring==0x0000);
+    assert(makeScreen(receiver,29700,true).ring==0xfd20); // Stale overrides pause.
+    receiver.connectionClosed();
+    assert(makeScreen(receiver,24701,true).ring==0xf800);
+    receiver.connectionOpened();
+    assert(makeScreen(receiver,24702,true).ring==0x07ff);
+  }
+  for (uint8_t status : {0u,3u}) {
+    bytes[5]=status; receiver.receive(bytes,20,30000);
+    for (uint32_t now : {30000u,30500u,31000u}) {
+      assert(makeScreen(receiver,now,true).ring==(status==0 ? 0x001f : 0x07e0));
+    }
+  }
   char duration[24];
   formatDuration(359999,duration,sizeof(duration)); assert(strcmp(duration,"99:59:59")==0);
   formatDuration(360000,duration,sizeof(duration)); assert(strcmp(duration,"100:00:00")==0);

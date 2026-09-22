@@ -1,5 +1,29 @@
 # Validation
 
+## Activity colours and paused ring — 22 September 2026
+
+The current ride UI now uses blue for fresh data with no activity or unknown
+activity state, steady green for running, and a green/black circumference ring
+alternating every 500 ms for manual pause and Auto Pause. Connection text and
+the active page dot retain the steady status tint. Cyan (awaiting data), orange
+(stale) and red (disconnected) override activity state. Packet arrivals do not
+restart flashing; the main loop redraws when the ring changes phase.
+
+Host protocol/receiver/UI tests passed with C++11 and warnings treated as errors,
+including both pause types on both pages, 500 ms boundaries, packet arrival during
+the black phase, resume/no activity/unknown state, and link-warning precedence.
+Receiver compilation passed with ESP32 core 3.3.11 and the documented board
+settings: 635,831 bytes program storage and 29,708 bytes globals. Build output:
+`/tmp/stem-activity-colours-build`. `git diff --check` passed.
+
+Garmin source and packet format were unchanged; no Garmin build or simulator run
+was performed. This receiver update has not been uploaded or physically tested.
+Next: upload `StemScreen/StemScreen.ino` using the existing Arduino settings;
+check blue before starting/after ending an activity, steady green while running,
+500 ms green/500 ms black while manually paused and Auto Paused, and steady green
+on resume. Check both clock and ride-time pages, steady text/dot during flashing,
+and that stale/disconnection warnings still replace the activity colour.
+
 ## Map updates and Garmin restart verified — 17 September 2026
 
 With Garmin diag2 and receiver RX diag2, Tom reports:

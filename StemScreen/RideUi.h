@@ -12,7 +12,7 @@ inline LinkStatus linkStatus(const ReceiverState& s, uint32_t now) {
 }
 inline uint16_t linkColor(LinkStatus status) {
   switch (status) {
-    case LinkStatus::Live: return 0x07e0;         // green
+    case LinkStatus::Live: return 0x001f;         // blue until activity is confirmed
     case LinkStatus::WaitingData: return 0x07ff;  // cyan
     case LinkStatus::Stale: return 0xfd20;        // orange
     default: return 0xf800;                      // red
@@ -46,7 +46,7 @@ struct PageRotation {
 struct RideScreen {
   char title[16] = {}, value[24] = {}, detail[32] = {}, connection[32] = {}, footer[32] = {};
   uint8_t valueSize = 4;
-  uint16_t ring = 0xf800, valueColor = 0xffff;
+  uint16_t tint = 0xf800, ring = 0xf800, valueColor = 0xffff;
   bool ridePage = false;
 };
 inline RideScreen makeScreen(const ReceiverState& state, uint32_t now, bool ridePage) {
@@ -55,10 +55,14 @@ inline RideScreen makeScreen(const ReceiverState& state, uint32_t now, bool ride
   const auto link = linkStatus(state, now);
   const bool live = link == LinkStatus::Live;
   const bool seen = state.packets != 0;
-  screen.ring = linkColor(link);
+  const RidePacket& p = state.packet;
+  const bool active = live && (p.flags & STATE_VALID) && p.status != RideStatus::Off;
+  const bool paused = active && (p.status == RideStatus::Stopped || p.status == RideStatus::AutoPaused);
+  screen.tint = active ? 0x07e0 : linkColor(link);
+  // Use the display clock, not packet arrival: regular packets must not reset blinking.
+  screen.ring = paused && (now / 500) % 2 ? 0x0000 : screen.tint;
   screen.valueColor = live ? 0xffff : 0x8410;
   snprintf(screen.title, sizeof(screen.title), "%s", ridePage ? "RIDE TIME" : "CLOCK");
-  const RidePacket& p = state.packet;
   if (ridePage) {
     if (seen && (p.flags & DURATION_VALID)) formatDuration(p.durationSeconds, screen.value, sizeof(screen.value));
     else snprintf(screen.value, sizeof(screen.value), "--:--:--");
