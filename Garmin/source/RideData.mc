@@ -19,7 +19,7 @@ class RideData {
     }
     // Kept independent of BLE so null/state/time conversion can be unit-tested.
     function encode(local, timerMs, state) as Lang.ByteArray {
-        var data = [0x42,0x53,2,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]b;
+        var data = [0x42,0x53,3,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]b;
         if (local != null && local.year >= 2000 && local.year <= 2099) {
             data[4] |= 1;
             data[6] = local.year & 0xff; data[7] = (local.year >> 8) & 0xff;
@@ -30,6 +30,8 @@ class RideData {
             data[4] |= 2;
             var seconds = (timerMs / 1000).toNumber();
             for (var i = 0; i < 4; i++) { data[14+i] = (seconds >> (i*8)) & 0xff; }
+            var millis = (timerMs % 1000).toNumber();
+            data[18] = millis & 0xff; data[19] = (millis >> 8) & 0xff;
         }
         if (state == Activity.TIMER_STATE_OFF || state == Activity.TIMER_STATE_STOPPED ||
             state == Activity.TIMER_STATE_PAUSED || state == Activity.TIMER_STATE_ON) {

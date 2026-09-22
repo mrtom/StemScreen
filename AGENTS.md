@@ -68,6 +68,19 @@ BLE uses the library bundled with Espressif's core. Do not add a competing Ardui
 
 ## Architecture and implemented behaviour
 
+Current ride UI update, 22 September 2026: source uses ride packets (version 3,
+kind 2, 20 bytes) with Garmin clock, active duration (seconds plus fractional
+milliseconds) and activity state; the counter description below is historical.
+`RideClock.h` keeps a continuous estimate while fresh and Running, preserving
+fractional phase across packets. It ignores errors within 150 ms; three same-sign
+errors outside that deadband enable at most 1% rate correction. State changes,
+source timer regression, stale recovery/reconnection and errors >=2 seconds snap
+to Garmin. Receiver callbacks perform bounded arithmetic under the existing lock;
+rendering never mutates the snapshot or refreshes packet age. Paused/off/unknown
+states do not advance; stale/disconnected/waiting-data states show the confirmed
+duration in grey. Both devices must be updated; v1/v2 packets are rejected.
+Source truth is PROTOCOL.md; hardware validation of the continuous clock is pending.
+
 The **Garmin is the BLE central/GATT client**. The **Waveshare is the peripheral/GATT server**. The Connect IQ data field discovers the custom advertised service and writes to its characteristic. Pairing is handled by the field, not Garmin's ordinary Add Sensor screen. No phone or internet service is required for this link.
 
 The current BLE prototype sends a diagnostic counter approximately once per second from `DataField.compute()`. It is **not the ride timer**. The counter increments while disconnected and is not tied to activity timer pause state. It can reset when the app reloads.

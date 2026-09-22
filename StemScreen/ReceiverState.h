@@ -1,9 +1,11 @@
 #pragma once
 #include "BleProtocol.h"
+#include "RideClock.h"
 
 // Caller owns synchronization. Only a valid packet can refresh receivedAt.
 struct ReceiverState {
   RidePacket packet = {};
+  RideClock rideClock;
   uint32_t receivedAt = 0, packets = 0, rejected = 0;
   uint32_t connects = 0, disconnects = 0, writes = 0;
   uint32_t rawConnects = 0, rawDisconnects = 0;
@@ -33,6 +35,7 @@ struct ReceiverState {
       return;
     }
     // A real GATT write is connection evidence even if onConnect was missed.
+    rideClock.synchronise(decoded, now, packetFresh(connected, seenThisConnection, now, receivedAt));
     connectionOpened();
     packet = decoded;
     receivedAt = now;

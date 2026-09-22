@@ -6,17 +6,22 @@
 
 int main() {
   // Fixed sender vector: 2026-09-17 14:35:59, RUNNING, 3661 active seconds.
-  uint8_t bytes[] = {0x42,0x53,2,2,7,3,0xea,7,9,17,14,35,59,0,0x4d,0x0e,0,0,0,0};
+  uint8_t bytes[] = {0x42,0x53,3,2,7,3,0xea,7,9,17,14,35,59,0,0x4d,0x0e,0,0,0,0};
   RidePacket p;
   assert(decodeRide(bytes,20,p));
   assert(p.year==2026 && p.month==9 && p.day==17 && p.hour==14 && p.minute==35 && p.second==59);
   assert(p.durationSeconds==3661 && p.status==RideStatus::Running && p.flags==7);
   for (size_t n=0;n<20;n++) assert(!decodeRide(bytes,n,p));
   assert(!decodeRide(bytes,21,p)); assert(!decodeRide(nullptr,20,p));
-  for (unsigned i : {0u,1u,2u,3u,4u,5u,13u,18u,19u}) {
+  for (unsigned i : {0u,1u,2u,3u,4u,5u,13u,19u}) {
     uint8_t old=bytes[i]; bytes[i]^=0x80;
     assert(!decodeRide(bytes,20,p)); bytes[i]=old;
   }
+  bytes[18]=0xe7; bytes[19]=3;
+  assert(decodeRide(bytes,20,p) && p.durationMillis==999);
+  bytes[18]=0xe8; assert(!decodeRide(bytes,20,p)); // 1000 ms is invalid.
+  bytes[18]=bytes[19]=0;
+  bytes[2]=2; assert(!decodeRide(bytes,20,p)); bytes[2]=3;
   // Reject the old counter format instead of displaying a counter as ride time.
   uint8_t legacy[] = {0x42,0x53,1,1,1,0,0,0,0,0,0,0,1,0,0,0};
   assert(!decodeRide(legacy,sizeof(legacy),p));
@@ -30,15 +35,16 @@ int main() {
   assert(!validDate(2026,2,29) && !validDate(2026,4,31));
   assert(!validDate(1999,12,31) && !validDate(2100,1,1));
   // Unknown data is explicit; absent fields must be zero.
-  uint8_t absent[20] = {0x42,0x53,2,2};
+  uint8_t absent[20] = {0x42,0x53,3,2};
   assert(decodeRide(absent,20,p) && p.flags==0);
   absent[14]=1; assert(!decodeRide(absent,20,p)); absent[14]=0;
   absent[6]=1; assert(!decodeRide(absent,20,p)); absent[6]=0;
+  absent[18]=1; assert(!decodeRide(absent,20,p)); absent[18]=0;
   absent[5]=1; assert(!decodeRide(absent,20,p)); absent[5]=0;
   // Full unsigned little-endian range; invalid input leaves output unchanged.
   uint8_t saved[4]; memcpy(saved,bytes+14,4); memset(bytes+14,0xff,4);
   assert(decodeRide(bytes,20,p) && p.durationSeconds==0xffffffffu);
-  bytes[19]=1; assert(!decodeRide(bytes,20,p) && p.durationSeconds==0xffffffffu);
+  bytes[19]=4; assert(!decodeRide(bytes,20,p) && p.durationSeconds==0xffffffffu);
   bytes[19]=0; memcpy(bytes+14,saved,4);
 
   ReceiverState receiver;
@@ -122,6 +128,45 @@ int main() {
       assert(makeScreen(receiver,now,true).ring==(status==0 ? 0x001f : 0x07e0));
     }
   }
+  // Millisecond arrival anchor: advance between packets, always resync to Garmin.
+  bytes[5]=3; bytes[14]=60;
+  receiver.receive(bytes,20,40123);
+  assert(displayedDuration(receiver,40123)==60);
+  assert(displayedDuration(receiver,41122)==60);
+  assert(displayedDuration(receiver,41123)==61);
+  assert(displayedDuration(receiver,43123)==63);
+  assert(strcmp(makeScreen(receiver,43123,true).value,"00:01:03")==0);
+  assert(receiver.packet.durationSeconds==60); // Rendering cannot alter the snapshot.
+  receiver.receive(bytes,19,43123); // Malformed packets cannot reset the anchor.
+  assert(displayedDuration(receiver,44123)==64 && receiver.receivedAt==40123);
+  assert(displayedDuration(receiver,45122)==64);
+  assert(displayedDuration(receiver,45123)==60); // Stale shows last confirmed value.
+  bytes[14]=62; receiver.receive(bytes,20,45130);
+  assert(displayedDuration(receiver,45130)==62); // Allow authoritative corrections.
+  assert(displayedDuration(receiver,46130)==63);
+  for (uint8_t status : {0u,1u,2u}) {
+    bytes[5]=status; receiver.receive(bytes,20,47000);
+    assert(displayedDuration(receiver,50000)==62);
+  }
+  bytes[5]=0; bytes[4]=CLOCK_VALID | DURATION_VALID;
+  receiver.receive(bytes,20,51000);
+  assert(displayedDuration(receiver,54000)==62); // Unknown activity cannot advance.
+  bytes[5]=3; bytes[4]=7; receiver.receive(bytes,20,55000);
+  assert(displayedDuration(receiver,57000)==64); // Resume.
+  receiver.connectionClosed();
+  assert(displayedDuration(receiver,57000)==62);
+  receiver.connectionOpened();
+  assert(displayedDuration(receiver,57000)==62); // Await fresh data on reconnection.
+  receiver.receive(bytes,20,0xfffffff0u);
+  assert(displayedDuration(receiver,983)==62);
+  assert(displayedDuration(receiver,984)==63); // Millisecond rollover.
+  assert(displayedDuration(receiver,2984)==65);
+  assert(displayedDuration(receiver,4984)==62);
+  memset(bytes+14,0xff,4); receiver.receive(bytes,20,60000);
+  assert(displayedDuration(receiver,63000)==UINT32_MAX); // Never wrap ride duration.
+  bytes[4]=CLOCK_VALID | STATE_VALID; memset(bytes+14,0,4);
+  receiver.receive(bytes,20,64000);
+  assert(strcmp(makeScreen(receiver,67000,true).value,"--:--:--")==0);
   char duration[24];
   formatDuration(359999,duration,sizeof(duration)); assert(strcmp(duration,"99:59:59")==0);
   formatDuration(360000,duration,sizeof(duration)); assert(strcmp(duration,"100:00:00")==0);

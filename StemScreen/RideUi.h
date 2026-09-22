@@ -32,6 +32,14 @@ inline void formatDuration(uint32_t s, char* out, size_t n) {
   snprintf(out, n, "%02lu:%02lu:%02lu", (unsigned long)(s/3600),
     (unsigned long)((s/60)%60), (unsigned long)(s%60));
 }
+inline uint32_t displayedDuration(const ReceiverState& state, uint32_t now) {
+  const RidePacket& p = state.packet;
+  if (linkStatus(state, now) != LinkStatus::Live ||
+      (p.flags & (DURATION_VALID | STATE_VALID)) != (DURATION_VALID | STATE_VALID) ||
+      p.status != RideStatus::Running) return p.durationSeconds;
+  const uint64_t seconds = state.rideClock.milliseconds(now) / 1000;
+  return seconds > UINT32_MAX ? UINT32_MAX : uint32_t(seconds);
+}
 struct PageRotation {
   bool ridePage = false;
   uint32_t startedAt = 0;
@@ -64,7 +72,7 @@ inline RideScreen makeScreen(const ReceiverState& state, uint32_t now, bool ride
   screen.valueColor = live ? 0xffff : 0x8410;
   snprintf(screen.title, sizeof(screen.title), "%s", ridePage ? "RIDE TIME" : "CLOCK");
   if (ridePage) {
-    if (seen && (p.flags & DURATION_VALID)) formatDuration(p.durationSeconds, screen.value, sizeof(screen.value));
+    if (seen && (p.flags & DURATION_VALID)) formatDuration(displayedDuration(state, now), screen.value, sizeof(screen.value));
     else snprintf(screen.value, sizeof(screen.value), "--:--:--");
     const char* status = seen ? rideStatusText(p) : "WAITING FOR DATA";
     snprintf(screen.detail, sizeof(screen.detail), "%s%s", seen && !live ? "Last: " : "", status);

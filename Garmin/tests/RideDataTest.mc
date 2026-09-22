@@ -10,7 +10,7 @@ class SampleLocalTime {
 function rideWireVector(logger) {
     var ride = new RideData();
     var data = ride.encode(new SampleLocalTime(), 3661999, Activity.TIMER_STATE_ON);
-    var expected = [0x42,0x53,2,2,7,3,0xea,7,9,17,14,35,59,0,0x4d,0x0e,0,0,0,0]b;
+    var expected = [0x42,0x53,3,2,7,3,0xea,7,9,17,14,35,59,0,0x4d,0x0e,0,0,0xe7,3]b;
     Test.assertEqual(data.size(), 20);
     for (var i=0;i<20;i++) { Test.assertEqual(data[i], expected[i]); }
     return true;
@@ -22,6 +22,20 @@ function rideMissingData(logger) {
     for (var i=4;i<20;i++) { Test.assertEqual(data[i], 0); }
     data = ride.encode(null, -1, 99);
     Test.assertEqual(data[4], 0);
+    return true;
+}
+(:test)
+function rideFractionalBoundaries(logger) {
+    var ride = new RideData();
+    var times = [0, 1, 999, 1000, 1001];
+    var seconds = [0, 0, 0, 1, 1];
+    var fractions = [0, 1, 999, 0, 1];
+    for (var i=0;i<times.size();i++) {
+        var data = ride.encode(null, times[i], Activity.TIMER_STATE_ON);
+        Test.assertEqual(data[2], 3);
+        Test.assertEqual(data[14], seconds[i]);
+        Test.assertEqual(data[18] | (data[19] << 8), fractions[i]);
+    }
     return true;
 }
 (:test)

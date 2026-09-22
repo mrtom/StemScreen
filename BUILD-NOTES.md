@@ -1,5 +1,74 @@
 # Validation
 
+## Continuous ride clock and protocol v3 — 22 September 2026
+
+Tom reports the first interpolation improved gaps but still produced uneven
+seconds. That implementation discarded Garmin's fractional seconds and restarted
+the local phase at every packet. Protocol v3 preserves the millisecond remainder
+in bytes 18–19 of the existing 20-byte packet; v1/v2 are rejected, so both devices
+must be updated together. UUIDs and the Garmin app ID remain unchanged.
+
+`RideClock.h` now preserves a continuous local estimate. It ignores errors within
+150 ms and requires three consecutive larger errors in the same direction before
+correcting at up to 1% of timer speed. Pause/resume, source timer regression,
+stale recovery/reconnection and discrepancies of at least two seconds synchronise
+immediately. Stale/disconnected views still show the last confirmed value in grey.
+The ride number redraws when its second changes, independently of the general
+250 ms refresh. BLE delivery latency remains unmeasured; this is an estimate.
+
+Validation:
+
+- Both host suites passed with C++11, `-Wall -Wextra -Werror -pedantic`.
+  Coverage includes v3 fractions/invalid values/old-version rejection, exact
+  one-second ticks over irregular packet arrivals and three-second gaps, positive
+  and negative drift convergence without jumps, alternating jitter, state changes,
+  resets, stale/reconnect recovery, malformed data, millis rollover and overflow.
+- Receiver compilation passed with ESP32 core 3.3.11 and the documented board
+  settings: 636,367 bytes program storage and 29,756 bytes globals. Output:
+  `/tmp/stem-continuous-clock-build`.
+- Production and test builds passed for Edge 530 using Connect IQ SDK 9.2.0.
+  The existing 32×32-to-35×35 icon scaling warning remains. Java compilation needed
+  `JDK_JAVA_OPTIONS=-Djava.awt.headless=true` after the normal launcher aborted
+  while initialising macOS AWT. Production output: `/tmp/stem-continuous-clock.prg`;
+  test output: `/tmp/stem-continuous-clock-tests.prg`. The production PRG is also
+  copied to ignored `Garmin/builds/continuous-clock/Garmin.prg` for sideloading.
+- Simulator execution could not be completed: Launch Services returned -10827,
+  and launching the installed simulator executable directly aborted (exit 134).
+  Garmin tests compiled but were not executed. No physical upload/test performed.
+- `git diff --check` passed.
+
+Next: install the new Garmin PRG and upload the receiver. Check regular seconds
+while running with two-to-three-second packet gaps, manual pause/Auto Pause,
+resume, activity end/restart, and stale/disconnection recovery on both pages.
+Compare against Garmin over a longer run; BLE delay and the selected correction
+thresholds still need evaluation on the actual devices.
+
+## Ride timer between packets — 22 September 2026
+
+Tom reports the ride display looks stuck between Garmin packets. Rendering now
+adds elapsed whole seconds from the existing `millis()` receive timestamp when
+the last valid packet reports Running with a valid duration and activity state.
+Each new packet replaces the anchor and duration, including downward corrections.
+The Garmin packet remains unchanged; local rendering cannot refresh freshness.
+Manual/Auto Pause, Off and unknown state never advance locally. At five seconds
+without valid data, or on disconnection/reconnection awaiting data, the UI returns
+to the last confirmed duration in grey. The Garmin sender still sends whole
+seconds, so this smooths gaps without claiming subsecond Garmin accuracy.
+
+Host tests passed with C++11 and warnings treated as errors: millisecond second
+boundaries, a three-second packet gap, authoritative resync, malformed writes,
+pause/resume/off/unknown states, missing duration, stale/disconnect/reconnect,
+millis rollover and duration overflow. Receiver compilation passed with ESP32
+core 3.3.11 and the documented board settings: 635,891 bytes program storage,
+29,708 bytes globals. `git diff --check` passed. No Garmin build or simulator
+run was needed/performed; the sender and wire format are unchanged. No upload
+was performed and hardware validation is pending.
+
+Next: upload the receiver with the existing Arduino settings. Verify that ride
+time ticks during two-to-three-second packet gaps, stops after receiving manual
+pause/Auto Pause, resumes correctly, and resynchronises after a gap. Verify grey
+last-confirmed values after stale data or disconnect. No Garmin update is needed.
+
 ## Activity colours and paused ring — 22 September 2026
 
 The current ride UI now uses blue for fresh data with no activity or unknown

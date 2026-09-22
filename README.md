@@ -11,6 +11,24 @@ means no valid packet for five seconds, and red means disconnected. These link
 warnings override activity colours and flashing. Time and detail text stay white
 with fresh data and grey otherwise.
 
+While running, a continuous local millisecond timer drives the ride display.
+Garmin packets include fractional milliseconds. Packet arrivals preserve the local
+phase: differences up to 150 ms are ignored; three consecutive larger differences
+in the same direction trigger gradual correction at at most 1% of timer speed.
+Pause/resume, timer resets, reconnection, recovery after stale data and differences
+of at least two seconds resynchronise immediately. The number redraws as soon as
+the main loop observes its next second, without waiting for the 250 ms UI refresh.
+Paused, inactive or unknown activity states do not advance. Stale (five seconds),
+disconnected and awaiting-data states show the last confirmed duration in grey.
+BLE delivery delay is not measured, so this is a smooth estimate between samples.
+
+**Update both devices for protocol v3.** Upload `StemScreen/StemScreen.ino` with
+your existing ESP32S3 settings. Build `Garmin/monkey.jungle` for Edge 530 with your
+developer key, copy the resulting `.prg` into the Garmin's `GARMIN/APPS`, replacing
+the previous StemScreen app, eject and unplug. Version 1/2 packets are rejected;
+an old sender/receiver combination will not provide live data after only one side
+is updated. UUIDs and Garmin application ID are unchanged.
+
 The counter setup notes below describe the earlier diagnostic version.
 
 This sends a counter from your **Garmin Edge 530** to your **Waveshare ESP32-S3-LCD-1.28 non-touch** board, roughly once a second. The board only displays values it actually receives.

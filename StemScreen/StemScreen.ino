@@ -128,6 +128,7 @@ void loop() {
   static uint32_t loggedRejected = 0;
   static bool restartPending = false;
   static uint16_t lastRing = 0xf800;
+  static uint32_t lastDrawDuration = 0;
   ReceiverState state;
   portENTER_CRITICAL(&stateLock);
   state = sharedState;
@@ -163,9 +164,12 @@ void loop() {
   }
   rotation.update(now);
   const auto screen = makeScreen(state, now, rotation.ridePage);
-  if (uint32_t(now-lastDraw) >= 250 || screen.ring != lastRing) {
+  const uint32_t duration = displayedDuration(state, now);
+  if (uint32_t(now-lastDraw) >= 250 || screen.ring != lastRing ||
+      (rotation.ridePage && duration != lastDrawDuration)) {
     lastDraw = now;
     lastRing = screen.ring;
+    lastDrawDuration = duration;
     drawScreen(screen);
   }
   delay(5);
