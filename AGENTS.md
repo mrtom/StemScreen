@@ -85,6 +85,15 @@ Unknown and charging animation is disabled. Do not infer charging from ADC or
 serial connectivity. Animation logic is ready for a verified power-status input.
 Hardware calibration, ring appearance and 500 mAh runtime remain unverified.
 
+## Display composition (23 September 2026)
+
+`DisplayRenderer.h` composes text, rings, dots and the battery icon into complete
+240×48 bands before LCD transfer. Keep all layers in the RAM canvas; direct
+black clears/text rectangles on the LCD caused a likely source of local flicker.
+The band buffer uses 23,040 bytes; unchanged visible states skip redraws. Pixel
+regressions use the installed Adafruit_GFX library with host-only Arduino shims
+in `tests/gfx_host`; see `tests/README.md`. Hardware confirmation is pending.
+
 ## Architecture and implemented behaviour
 
 Current ride UI update, 22 September 2026: source uses ride packets (version 3,

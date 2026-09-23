@@ -10,65 +10,20 @@
 #include <esp_arduino_version.h>
 #include "RideUi.h"
 #include "Battery.h"
-#include <math.h>
+#include "DisplayRenderer.h"
 
 #if !defined(CONFIG_IDF_TARGET_ESP32S3)
 #error "Select ESP32S3 Dev Module"
 #endif
 SPIClass displaySPI(HSPI);
 Adafruit_GC9A01A display(&displaySPI, 8, 9, 12);
-// A small strip buffer keeps redraws smooth without a large BLE RAM cost.
-GFXcanvas16 strip(204, 48);
+// One full-width band composes all overlapping layers before LCD transfer.
+GFXcanvas16 strip(DISPLAY_WIDTH, DISPLAY_BAND_HEIGHT);
 PageRotation rotation;
 constexpr int STEM_BATTERY_PIN = 1;
-constexpr int BATTERY_RING_OUTER_RADIUS = 115;
-constexpr int RING_THICKNESS = 4;
-constexpr int RING_GAP = 2;
-constexpr int STATUS_RING_OUTER_RADIUS = BATTERY_RING_OUTER_RADIUS - RING_THICKNESS - RING_GAP;
 BatteryState battery;
 BatterySampler batterySampler;
 
-void drawBatteryRing(uint16_t tint, uint32_t now) {
-  const BatteryRing ring = batteryRing(battery, tint, now);
-  // Both rings are four pixels thick, separated by two clear pixels.
-  // Half-degree steps overlap at this radius, making a continuous arc.
-  display.startWrite();
-  for (unsigned step = 0; step < 720; ++step) {
-    const unsigned degree = step / 2;
-    const bool gap = degree % 90 < 2;
-    const bool lit = degree < ring.solidDegrees ||
-      (ring.flashOn && degree < ring.flashEndDegrees);
-    const uint16_t color = gap ? GC9A01A_BLACK :
-      !battery.valid ? GC9A01A_DARKGREY : lit ? ring.color : GC9A01A_BLACK;
-    const float angle = step * (3.14159265f / 360.0f);
-    for (int radius = BATTERY_RING_OUTER_RADIUS - RING_THICKNESS + 1;
-         radius <= BATTERY_RING_OUTER_RADIUS; ++radius) {
-      display.writePixel(120 + lroundf(radius * sinf(angle)),
-        120 - lroundf(radius * cosf(angle)), color);
-    }
-  }
-  display.endWrite();
-  // Centre the eight-pixel icon on the battery stroke at 12 o'clock.
-  // Draw the black backing after both rings, preserving RING_GAP padding.
-  constexpr int iconX = 111, iconWidth = 18, iconHeight = 8;
-  constexpr int iconY = 120 - BATTERY_RING_OUTER_RADIUS +
-    (RING_THICKNESS - iconHeight) / 2;
-  display.fillRect(iconX - RING_GAP, iconY - RING_GAP,
-    iconWidth + 2 * RING_GAP, iconHeight + 2 * RING_GAP, GC9A01A_BLACK);
-  // Steady colour does not imply charging detection.
-  if (battery.valid && battery.quarters == 4) {
-    display.fillRect(iconX, iconY, 16, iconHeight, ring.color);
-  } else {
-    display.drawRect(iconX, iconY, 16, iconHeight, ring.color);
-    // Twelve interior pixels give exact quarter fills, with a black inset.
-    // The shared quarter level keeps the icon and ring hysteresis aligned.
-    if (battery.valid && battery.quarters > 0) {
-      display.fillRect(iconX + 2, iconY + 2, battery.quarters * 3,
-        iconHeight - 4, ring.color);
-    }
-  }
-  display.fillRect(iconX + 16, iconY + 2, 2, 4, ring.color);
-}
 portMUX_TYPE stateLock = portMUX_INITIALIZER_UNLOCKED;
 ReceiverState sharedState;
 
@@ -114,31 +69,22 @@ void receiverGattEvent(esp_gatts_cb_event_t event, esp_gatt_if_t, esp_ble_gatts_
 }
 #endif
 
-void textLine(const char* text, int y, int size, uint16_t color, int height) {
-  strip.fillScreen(GC9A01A_BLACK);
-  strip.setTextWrap(false);
-  strip.setTextSize(size);
-  strip.setTextColor(color);
-  int16_t x, top; uint16_t w, h;
-  strip.getTextBounds(text, 0, 0, &x, &top, &w, &h);
-  strip.setCursor((204-int(w))/2-x, 0);
-  strip.print(text);
-  display.drawRGBBitmap(18, y, strip.getBuffer(), 204, height);
-}
 void drawScreen(const RideScreen& screen, uint32_t now) {
-  textLine(screen.title, 44, 2, GC9A01A_WHITE, 24);
-  textLine(screen.value, 92, screen.valueSize, screen.valueColor, 48);
-  textLine(screen.detail, 151, strlen(screen.detail) <= 16 ? 2 : 1, screen.valueColor, 24);
-  textLine(screen.connection, 180, 1, screen.tint, 16);
-  textLine(screen.footer, 199, 1, GC9A01A_WHITE, 8);
-  display.fillCircle(111, 215, 3, screen.ridePage ? GC9A01A_DARKGREY : screen.tint);
-  display.fillCircle(129, 215, 3, screen.ridePage ? screen.tint : GC9A01A_DARKGREY);
-  // Redraw after the rectangular strips so the ring remains continuous.
-  for (int radius = STATUS_RING_OUTER_RADIUS - RING_THICKNESS + 1;
-       radius <= STATUS_RING_OUTER_RADIUS; ++radius) {
-    display.drawCircle(120, 120, radius, screen.ring);
+  static bool drawn = false;
+  static RideScreen previousScreen;
+  static BatteryState previousBattery;
+  static BatteryRing previousRing;
+  const BatteryRing ring = batteryRing(battery, screen.tint, now);
+  if (drawn && sameScreen(screen, previousScreen) &&
+      sameBatteryImage(battery, ring, previousBattery, previousRing)) return;
+  for (int y = 0; y < DISPLAY_HEIGHT; y += DISPLAY_BAND_HEIGHT) {
+    composeBand(strip, y, screen, battery, ring);
+    display.drawRGBBitmap(0, y, strip.getBuffer(), DISPLAY_WIDTH, DISPLAY_BAND_HEIGHT);
   }
-  drawBatteryRing(screen.tint, now);
+  previousScreen = screen;
+  previousBattery = battery;
+  previousRing = ring;
+  drawn = true;
 }
 void setup() {
   Serial.begin(115200);

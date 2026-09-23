@@ -76,8 +76,8 @@ fresh data. Missing disconnect events still lead to STALE after five seconds.
 The cause of previously missing callbacks on core 3.3.11 remains unestablished.
 
 Callbacks decode/copy state and perform bounded clock arithmetic under a short
-lock. All display and serial work remains in the main loop. The 204×48 strip
-buffer uses 19,584 bytes. The prototype uses no authentication/bonding and selects
+lock. All display and serial work remains in the main loop. The 240×48 display band
+buffer uses 23,040 bytes; all overlapping layers are composed before transfer. The prototype uses no authentication/bonding and selects
 the first matching service. A write acknowledgement proves transport completion,
 not successful packet decoding; receiver output is the acceptance evidence.
 

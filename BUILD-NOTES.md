@@ -1,5 +1,42 @@
 # Validation
 
+## Local display flicker — 23 September 2026
+
+Tom reports portions of the display repeatedly flicking off/on rather than a
+whole-screen backlight flash. Source inspection found a concrete mechanism:
+every 250 ms, black-backed text strips overwrote overlapping circle pixels,
+then the rings were restored via individual draw operations. The battery icon
+also received a direct black clear before repaint. This is the leading software
+explanation, not a hardware-confirmed diagnosis.
+
+Added `DisplayRenderer.h` to compose all overlapping elements into full-width
+240×48 bands offscreen and transfer only completed bands. Repeated identical
+screen/battery images skip LCD writes. All layout, icon levels and deliberate
+pause flashing remain; all rendering stays outside BLE locks. The canvas grows
+from 19,584 to 23,040 bytes (+3,456); no full-frame allocation is used on-device.
+This is not a panel-synchronised atomic frame swap; scan tearing may still need
+investigation if symptoms remain after upload.
+
+Validation:
+
+- Receiver compile passed with installed ESP32 core 3.3.11 and existing board
+  settings: 652,135 bytes program storage, 30,204 bytes globals (canvas heap
+  allocation excluded). Output: `/tmp/stem-render-build`.
+- New renderer regression uses the actual installed Adafruit_GFX canvas with
+  minimal host Arduino shims: every pixel in five bands matches a complete-frame
+  reference across both pages, all battery levels, invalid readings and flashing
+  phases. Checks include icon padding, ring/text overlap and redraw comparisons.
+- Existing battery, protocol/UI/receiver and continuous-clock suites passed with
+  C++11 and warnings treated as errors. `git diff --check` passed.
+- No upload, hardware confirmation, Garmin rebuild or simulator run performed.
+  Garmin and the BLE packet format are unchanged.
+
+Next: upload the receiver; watch both pages while running for at least 30 seconds,
+including rotation and second ticks, then pause (only the status ring should
+flash). If local flicker persists, record its location/cadence and compare USB
+versus battery under the same state. Update-only artifacts suggest scan tearing;
+brightness changes/resets suggest investigating power/backlight separately.
+
 ## Battery icon fill levels — 22 September 2026
 
 The top battery icon now follows the ring's stable quarter level: empty for low,

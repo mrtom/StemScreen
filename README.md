@@ -1,5 +1,26 @@
 # Bike Stem Computer — first Bluetooth test
 
+## Display flicker fix (23 September 2026)
+
+Text rectangles previously overwrote sections of the rings with black before
+redrawing them, and the battery icon was cleared directly on the LCD. The new
+renderer composes all layers in a 240×48 RAM buffer and sends each completed
+band to the display. Unchanged screen/battery images are skipped. The buffer
+uses 23,040 bytes (3,456 more than before); no full-screen allocation is needed.
+The intended paused-status flash remains. Layout, battery levels and protocol
+are unchanged. This addresses a concrete redraw issue; physical confirmation
+that it resolves the reported flicker is pending.
+
+Upload `StemScreen/StemScreen.ino` with the existing settings; no Garmin update
+is needed. Check both pages for 30 seconds while running, including page rotation,
+then pause: only the inner status ring should intentionally flash. The battery
+icon and text should remain steady. If flicker persists, note the exact area and
+whether it coincides with second ticks, page changes or pause flashing. Compare
+USB-powered and battery-only operation with the same activity state. Flicker only
+during updates suggests display scan/transfer tearing; whole-display brightness
+changes or resets warrant a power/backlight investigation. Neither alternative
+is established by the current report.
+
 ## Battery ring (22 September 2026)
 
 The receiver now samples GPIO1 (`BAT_ADC`) with `analogReadMilliVolts()`: 16
